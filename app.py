@@ -270,7 +270,173 @@ async def admin_delete_user(request: Request):
         
     return {"status": "error", "message": "Пользователь не найден."}
 
+@app.post("/api/change_username")
+async def change_username(request: Request):
+    data = await request.json()
+    old_name = data.get("old_username")
+    new_name = data.get("new_username", "").strip()
 
+    if not old_name or not new_name:
+        return {"status": "error", "message": "Никнейм не может быть пустым!"}
+
+    db = load_data()
+    if new_name in db["users"]:
+        return {"status": "error", "message": "Этот никнейм уже занят!"}
+
+    if old_name in db["users"]:
+        db["users"][new_name] = db["users"].pop(old_name)
+        db["users"][new_name]["username"] = new_name
+        save_data(db)
+        return {"status": "success", "new_username": new_name}
+    
+    return {"status": "error", "message": "Пользователь не найден."}
+
+@app.post("/api/change_password")
+async def change_password(request: Request):
+    data = await request.json()
+    username = data.get("username")
+    new_pass = data.get("new_password")
+
+    if not username or not new_pass or len(new_pass) < 3:
+        return {"status": "error", "message": "Пароль слишком короткий!"}
+
+    db = load_data()
+    if username in db["users"]:
+        db["users"][username]["password"] = new_pass
+        save_data(db)
+        return {"status": "success"}
+    return {"status": "error", "message": "Пользователь не найден."}
+
+@app.post("/api/reset_stats")
+async def reset_stats(request: Request):
+    data = await request.json()
+    username = data.get("username")
+
+    db = load_data()
+    if username in db["users"]:
+        db["users"][username].update({
+            "wpm": 0, "acc": 0, "TotalFP": 0,
+            "stats_bestWpm": 0, "stats_totalTests": 0,
+            "stats_totalWpmSum": 0, "stats_totalAccSum": 0,
+            "stats_totalMistakes": 0, "stats_wpm_history": "[]",
+            "key_stats": "{}"
+        })
+        save_data(db)
+        return {"status": "success"}
+    return {"status": "error", "message": "Пользователь не найден."}
+
+@app.post("/api/delete_account")
+async def delete_account(request: Request):
+    data = await request.json()
+    username = data.get("username")
+
+    db = load_data()
+    if username in db["users"]:
+        db["users"].pop(username)
+        save_data(db)
+        return {"status": "success"}
+    return {"status": "error", "message": "Пользователь не найден."}
+
+BOT_TOKEN = "8902350134:AAEhi-HEnk0sAEOk06iYKNt_iNlLLkY5Gy4"
+
+bot = None
+if BOT_TOKEN and ":" in BOT_TOKEN:
+    try:
+        bot = telebot.TeleBot(BOT_TOKEN)
+    except Exception as e:
+        print(f"Error: {e}")
+else:
+    print("No bot token.")
+
+if bot:
+    @bot.message_handler(commands=['start'])
+    def send_welcome(message):
+        welcome_text = (
+            "👋 *Приветствую!*\n\n"
+            "Я бот тренажёра **FastType** ⌨️\n\n"
+            "🔹 `/reg [логин] [пароль]` — создать аккаунт.\n"
+            "🔹 `/sign [логин] [пароль]` — войти и посмотреть статистику."
+        )
+        bot.send_message(message.chat.id, welcome_text, parse_mode="Markdown")
+
+    @bot.message_handler(commands=['reg'])
+    def register_via_bot(message):
+        raw_args = message.text.replace("/reg", "").strip()
+        raw_args = raw_args.replace(",", " ")
+        parts = [p.strip() for p in raw_args.split() if p.strip()]
+
+        if len(parts) < 2:
+            bot.reply_to(message, "❌ Ошибка ввода! Пример: `/reg User 123`", parse_mode="Markdown")
+            return
+
+        username = parts[0]
+        password = parts[1]
+        db = load_data()
+        
+        if username in db["users"]:
+            bot.reply_to(message, f"❌ Никнейм `{username}` занят!", parse_mode="Markdown")
+            return
+
+        db["users"][username] = {
+            "password": password,
+            "created_at": datetime.now().strftime("%d.%m.%Y"),
+            "fastpanel": "false",
+            "aitxt": "false",
+            "wpm": 0,
+            "acc": 0,
+            "TotalFP": 0,
+            "UnlockedBGs": ["1"],
+            "Difficult": "Normal",
+            "selectedTheme": "NightNeon",
+            "stats_bestWpm": 0,
+            "stats_totalTests": 0,
+            "stats_totalWpmSum": 0,
+            "stats_totalAccSum": 0,
+            "stats_totalMistakes": 0,
+            "stats_wpm_history": "[]",
+            "key_stats": "{}"
+        }
+        save_data(db)
+        bot.send_message(message.chat.id, f"🎉 Аккаунт `{username}` создан!", parse_mode="Markdown")
+
+    @bot.message_handler(commands=['sign'])
+    def login_via_bot(message):
+        raw_args = message.text.replace("/sign", "").strip()
+        raw_args = raw_args.replace(",", " ")
+        parts = [p.strip() for p in raw_args.split() if p.strip()]
+
+        if len(parts) < 2:
+            bot.reply_to(message, "❌ Ошибка ввода! Пример: `/sign User 123`", parse_mode="Markdown")
+            return
+
+        username = parts[0]
+        password = parts[1]
+        db = load_data()
+        user = db["users"].get(username)
+
+        if not user or user.get("password") != password:
+            bot.reply_to(message, "❌ Неверный логин или пароль.")
+            return
+
+        best_wpm = user.get("stats_bestWpm") or user.get("bestWpm") or user.get("wpm") or 0
+        total_fp = user.get("TotalFP") or 0
+        total_tests = user.get("stats_totalTests") or 0
+        theme = user.get("selectedTheme") or "NightNeon"
+
+        stats_card = (
+            f"👤 *ИГРОК: {username}*\n"
+            f"🎨 Тема: `{theme}`\n"
+            f"📊 Тестов: `{total_tests}`\n"
+            f"⚡ WPM: `{best_wpm}`\n"
+            f"🪙 FP: `{total_fp}`"
+        )
+        bot.send_message(message.chat.id, stats_card, parse_mode="Markdown")
+
+def run_bot():
+    if bot:
+        bot.infinity_polling()
+
+app.mount("/", StaticFiles(directory="static", html=True), name="static")
 
 if __name__ == "__main__":
     import uvicorn
