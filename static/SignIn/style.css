@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&family=Montserrat:wght@800;900&display=swap');
+:root {
+  --bg-color: #121213;
+  --main-color: #3b82f6;
+  --sub-color: #64748b;
+  --text-color: #e2e8f0;
+  --error-color: #f43f5e;
+  --panel-color: #1e1e20;
+  --input-bg: #1a1a1c;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto Mono', monospace;
+  color: var(--text-color);
+  overflow: hidden;
+  transition: background-color 0.4s ease;
+}
+
+.logo-container {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+  z-index: 1001;
+}
+
+.logo-container h1 {
+  margin: 0;
+  line-height: 1;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+.logo-top {
+  font-size: 28px;
+  color: var(--text-color);
+}
+
+.logo-bottom {
+  font-size: 28px;
+  color: var(--main-color);
+  text-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
+
+.lang-switch {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  display: flex;
+  gap: 25px;
+  z-index: 1001;
+}
+
+.lang-item {
+  cursor: pointer;
+  color: var(--sub-color);
+  transition: color 0.3s ease, transform 0.2s;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.lang-item:hover {
+  color: var(--text-color);
+  transform: translateY(-2px);
+}
+
+.lang-item.active {
+  color: var(--main-color);
+}
+
+form {
+  width: 100%;
+  max-width: 380px;
+  padding: 30px;
+  background: var(--panel-color);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+h1:not(.logo-top, .logo-bottom) {
+  text-align: center;
+  font-size: 1.25rem;
+  color: var(--text-color);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.inpt {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; 
+}
+
+#incorect, #incorect2, #incorect3 {
+  color: var(--error-color);
+  font-size: 11px;
+  margin: 2px 0 0 5px;
+  height: 12px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  background: var(--input-bg);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: var(--text-color);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: var(--main-color);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.links-checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--sub-color);
+  margin: 5px 0;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox input {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #2c2e31;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s;
+}
+
+.checkbox input:checked {
+  background: var(--main-color);
+}
+
+.checkbox input:checked::after {
+  content: '✓';
+  position: absolute;
+  color: #fff;
+  font-size: 12px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#btn {
+  background: var(--main-color);
+  color: #fff;
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+}
+
+#btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+#btn:active {
+  transform: translateY(0);
+}
+
+.logo-container {
+  position: fixed;
+  top: 70px;
+  left: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+  z-index: 1001;
+}
+
+.logo-container h1 {
+  margin: 0;
+  line-height: 1;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.logo-top {
+  font-size: 37px;
+  color: var(--main-color);
+}
+
+.logo-bottom {
+  font-size: 37px;
+  color: #3b82f6;
+  text-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+
+#incorect {
+  color: #ff4757;
+  font-size: 0.85rem;
+  min-height: 1.2rem;
+  margin: 10px 0;
+  text-align: center;
+  font-weight: 500;
+}
+
+.login-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.login-footer p {
+  color: var(--sub-color);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.login-footer a {
+  color: var(--main-color);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.login-footer a:hover {
+  opacity: 0.8;
+  border-bottom: 1px solid var(--main-color);
+}
+.password-wrapper {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 2. Сам инпут пароля внутри обертки */
+.password-wrapper input {
+  width: 100% !important; /* Растягиваем строго на всю ширину, как и поле никнейма */
+  box-sizing: border-box !important; /* Предотвращаем расширение за пределы контейнера */
+  padding-right: 65px !important; /* Делаем отступ справа, чтобы текст пароля не заходил под кнопку */
+}
+
+.password-toggle {
+  position: absolute;
+  right: 18px; /* Отступ справа внутри инпута */
+  top: 50%;
+  transform: translateY(-50%); /* Выравнивание ровно по центру высоты */
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--main-color);
+  user-select: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 10; /* Отображаем поверх фона инпута */
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.password-toggle:hover {
+  opacity: 0.8;
+  color: var(--panel-color);
+}

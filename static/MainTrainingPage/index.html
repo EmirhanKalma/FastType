@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+  <rect width='100' height='100' rx='20' fill='%230a0a0f'/> 
+  <text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' 
+        fill='%235d5dff' font-family='Arial Black, sans-serif' font-weight='900' font-size='70'>
+    F
+  </text>
+</svg>">
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Главная страница FastType</title>
+  </head>
+  <body>
+    <div id="bgContainer">
+      <canvas id="bgCanvas"></canvas>
+    </div>
+
+    <span class="Version">Version:1.0.0</span>
+
+    <div id="hellocard" class="hellocard">
+      <div id="logo-container1" class="logo-container1">
+        <h1 class="logo-top1">FAST</h1>
+        <h1 class="logo-bottom1">TYPE</h1>
+      </div>
+
+      <h1>Твой путь к совершенству печати</h1>
+
+      <div
+        class="content-wrapper"
+        style="text-align: left; margin: 20px 0; line-height: 1.6"
+      >
+        <p>
+          <strong>FastType</strong> — это современная экосистема для тех, кто
+          хочет печатать быстрее мысли. Мы создали платформу, где минимализм
+          сочетается с мощной аналитикой.
+        </p>
+
+        <ul style="list-style: none; padding: 0; margin: 15px 0">
+          <li style="margin-bottom: 10px">
+            🎨 <strong>Эстетика комфорта:</strong> Наши цвета подобраны так,
+            чтобы твои глаза не уставали. В отличие от MonkeyType, мы не
+            перегружаем тебя лишним  — только ты и текст.
+          </li>
+          <li style="margin-bottom: 10px">
+            ⚙️ <strong>Простота настройки:</strong> Благодаря
+            <strong>FastSettings</strong>, ты можешь изменить тему, фон или
+            сложность в пару кликов. У нас настройки понятны сразу, а не через
+            час изучения мануалов.
+          </li>
+          <li style="margin-bottom: 10px">
+            📊 <strong>Умный прогресс:</strong> Отслеживай графики WPM и
+            точности в реальном времени и копи <strong>FastPoints</strong>,
+            подтверждая свое мастерство.
+          </li>
+        </ul>
+
+        <p style="text-align: center; color: #a5b4fc; font-weight: 500">
+          Начни свой путь к безупречному владению клавиатурой уже сегодня!
+        </p>
+        <p style="text-align: end; color: #4e4f51; font-weight: 500">
+          Version:1.0.0
+        </p>
+      </div>
+
+      <button class="start-btn" onclick="Delete()">Начать тренировку</button>
+    </div>
+
+    <div id="logo-container" class="logo-container">
+      <h1 class="logo-top">FAST</h1>
+      <h1 class="logo-bottom">TYPE</h1>
+    </div>
+    <div class="app-wrapper">
+      <div id="timer"></div>
+      <div class="container"></div>
+
+      <div id="result-card" class="result-card">
+        <div class="result-main-layout">
+          <div class="chart-section">
+            <canvas id="wpmChart"></canvas>
+          </div>
+
+          <div class="stats-section">
+            <div class="res-group">
+              <div class="res-label">wpm</div>
+              <div class="res-num" id="wpm-res">0</div>
+            </div>
+            <div class="res-group">
+              <div class="res-label">acc</div>
+              <div class="res-num"><span id="acc-res">0</span>%</div>
+            </div>
+            <div class="res-group">
+              <div class="res-label">FastPoint's</div>
+              <div class="res-num" id="fp-res">+0</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-buttons">
+          <button
+            class="res-btn"
+            data-title="Repeat test"
+            onclick="resetGame(false)"
+          >
+            <i class="fa-solid fa-rotate-right"></i>
+          </button>
+
+          <button
+            class="res-btn"
+            data-title="Next test"
+            onclick="resetGame(true)"
+          >
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="keyboard" class="keyboard">
+        <div class="first-row">
+          <div id="q" data-key="KeyQ" class="key Q">Q</div>
+          <div id="w" data-key="KeyW" class="key W">W</div>
+          <div id="e" data-key="KeyE" class="key E">E</div>
+          <div id="r" data-key="KeyR" class="key R">R</div>
+          <div id="t" data-key="KeyT" class="key T">T</div>
+          <div id="y" data-key="KeyY" class="key Y">Y</div>
+          <div id="u" data-key="KeyU" class="key U">U</div>
+          <div id="i" data-key="KeyI" class="key I">I</div>
+          <div id="o" data-key="KeyO" class="key O">O</div>
+          <div id="p" data-key="KeyP" class="key P">P</div>
+        </div>
+        <div class="second-row">
+          <div id="a" data-key="KeyA" class="key A">A</div>
+          <div id="s" data-key="KeyS" class="key S">S</div>
+          <div id="d" data-key="KeyD" class="key D">D</div>
+          <div id="f" data-key="KeyF" class="key F">F</div>
+          <div id="g" data-key="KeyG" class="key G">G</div>
+          <div id="h" data-key="KeyH" class="key H">H</div>
+          <div id="j" data-key="KeyJ" class="key J">J</div>
+          <div id="k" data-key="KeyK" class="key K">K</div>
+          <div id="l" data-key="KeyL" class="key L">L</div>
+        </div>
+        <div class="third-row">
+          <div id="z" data-key="KeyZ" class="key Z">Z</div>
+          <div id="x" data-key="KeyX" class="key X">X</div>
+          <div id="c" data-key="KeyC" class="key C">C</div>
+          <div id="v" data-key="KeyV" class="key V">V</div>
+          <div id="b" data-key="KeyB" class="key B">B</div>
+          <div id="n" data-key="KeyN" class="key N">N</div>
+          <div id="m" data-key="KeyM" class="key M">M</div>
+        </div>
+        <div id="space" class="space"></div>
+      </div>
+    </div>
+
+    <!-- ТУТ ИСПРАВЛЕНЫ ПУТИ НА КОРРЕКТНЫЕ АБСОЛЮТНЫЕ -->
+    <div class="settings">
+      <div class="top-icons">
+        <button
+          onclick="goTo('/Profile/index.html')"
+          class="menu-btn"
+          data-type="user"
+          data-title="Profile"
+        ></button>
+        <button
+          onclick="goTo('/Statics/index.html')"
+          class="menu-btn"
+          data-type="stats"
+          data-title="Statistics"
+        ></button>
+        <button
+          onclick="goTo('/Championship/index.html')"
+          class="menu-btn"
+          data-type="trophy"
+          data-title="Leaderboard"
+        ></button>
+      </div>
+      <button
+        id="settingsBtn"
+        class="menu-btn"
+        data-type="settings"
+        data-title="Settings"
+      ></button>
+    </div>
+
+    <!-- ТУТ ТОЖЕ ИСПРАВЛЕНЫ ПУТИ В МЕНЮ НАСТРОЕК -->
+    <div class="settingsMenu" id="settingsMenu">
+      <button
+        onclick="goTo('/KeyboardEditor/index.html')"
+        id="keyboardSettingsBtn"
+        class="menu-item"
+        data-type="keyboard"
+        data-title="Keyboard Settings"
+      >
+        Настройка клавиатуры
+      </button>
+      <button
+        onclick="goTo('/ThemeEditor/index.html')"
+        id="themeSettingsBtn"
+        class="menu-item"
+        data-type="theme"
+        data-title="Change Theme"
+      >
+        Настройка темы
+      </button>
+      <button
+        onclick="goTo('/BagroundEditor/index.html')"
+        id="backgroundSettingsBtn"
+        class="menu-item"
+        data-type="background"
+        data-title="Wallpapers"
+      >
+        Настройка фона
+      </button>
+      <button
+        onclick="goTo('/DifficultyEditor/index.html')"
+        id="difficultySettingsBtn"
+        class="menu-item"
+        data-type="difficulty"
+        data-title="Difficulty Level"
+      >
+        Настройка сложности
+      </button>
+      <div class="FstPanelSwitch">
+        <span>FastPanel</span>
+        <div class="dis">
+          <label class="apple-switch">
+            <input type="checkbox" id="difficult-toggle" />
+            <span class="slider"></span>
+          </label>
+          <span class="info" id="info"></span>
+        </div>
+      </div>
+        <div class="FstPanelSwitch">
+        <span>AItxt</span>
+        <div class="dis">
+          <label class="apple-switch">
+            <input type="checkbox" id="difficult-toggle1" />
+            <span class="slider"></span>
+          </label>
+          <span class="info2" id="info2"></span>
+        </div>
+      </div>
+        <button
+        onclick="goTo('/Settings/index.html')"
+        id="AccontSettingsBtn"
+        class="menu-item"
+        data-type=""
+        data-title="Difficulty Level"
+      >
+        Настройка аккаунта
+      </button>
+    </div>
+
+    <div id="fastpanel" class="fastpanel">
+      <span class="time1">Время:</span>
+      <button id="15" class="15">15</button>
+      <button id="30" class="30">30</button>
+      <button id="50" class="50">50</button>
+      <input type="text" class="time" id="time" />
+      <button id="btn1" class="btn">Установить</button>
+      <span id="Dif">Сложность:</span>
+      <button onclick="goTo('/DifficultyEditor/index.html')" id="btn" class="btn">
+        Изменить
+      </button>
+    </div>
+
+    <span class="rool">TAB - сбрасывают игру и вы начинаете заново</span>
+    
+   
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/sync.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

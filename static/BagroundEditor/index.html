@@ -1,0 +1,1582 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Настройка Фона</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+  <rect width='100' height='100' rx='20' fill='%230a0a0f'/> 
+  <text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' 
+        fill='%235d5dff' font-family='Arial Black, sans-serif' font-weight='900' font-size='70'>
+    F
+  </text>
+</svg>"
+    />
+  </head>
+  <body>
+    <div id="keyboardset" class="keyboardset">
+      <canvas id="sakuraCanvasMain" class="main-effect-canvas"></canvas>
+    </div>
+    <span class="Version">Version:1.0.0</span>
+
+    <p class="warning">
+      Важно: учтите, что при активации некоторых анимаций темы могут работать
+      некорректно.
+    </p>
+    <p class="warning">
+      Важно: учтите, что при активации анимаций Обязательно перезагрузите
+      главную страницу.
+    </p>
+    <p class="warning">
+      Также этот раздел настроек может подтормаживать или работать нестабильно
+      из-за огромного количества анимаций!
+    </p>
+
+    <div class="Baground-Wrapper1">
+      <div class="Sakurabaground">
+        <div class="baground-preview" id="previewContainer1"></div>
+        <div class="inpt">
+          <input type="color" name="" id="inptcolor" class="iptcolor" />
+          <p>Цвет фона</p>
+        </div>
+        <div class="btns">
+          <button class="SetSakura" id="SeeFoneBtn">
+            Предварительный просмотр
+          </button>
+          <button class="SetSakura" id="SetFoneBtn">Установить фон</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="Themes-Grid">
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer">
+            <canvas id="sakuraCanvas"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeSakuraBtn" data-id="1">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="1" data-price="100">
+              Купить (100 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetSakuraBtn"
+              data-id="1"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer2">
+            <canvas id="rainCanvasPreview"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeRainBtn" data-id="2">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="2" data-price="150">
+              Купить (150 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetRainBtn"
+              data-id="2"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer3">
+            <canvas id="canvasPreview3"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeStarfallBtn" data-id="3">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="3" data-price="200">
+              Купить (200 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetStarfallBtn"
+              data-id="3"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer4">
+            <canvas id="canvasPreview4"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeMatrixBtn" data-id="4">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="4" data-price="250">
+              Купить (250 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetMatrixBtn"
+              data-id="4"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer5">
+            <canvas id="canvasPreview5"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeLeavesBtn" data-id="5">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="5" data-price="200">
+              Купить (200 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetLeavesBtn"
+              data-id="5"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer6">
+            <canvas id="canvasPreview6"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBubblesBtn" data-id="6">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="6" data-price="150">
+              Купить (150 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBubblesBtn"
+              data-id="6"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer7">
+            <canvas id="canvasPreview7"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeSparksBtn" data-id="7">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="7" data-price="300">
+              Купить (300 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetSparksBtn"
+              data-id="7"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer8">
+            <canvas id="canvasPreview8"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeSnowBtn" data-id="8">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="8" data-price="100">
+              Купить (100 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetSnowBtn"
+              data-id="8"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer9">
+            <canvas id="canvasPreview9"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeFirefliesBtn" data-id="9">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="9" data-price="400">
+              Купить (400 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetFirefliesBtn"
+              data-id="9"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer10">
+            <canvas id="canvasPreview10"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeNodesBtn" data-id="10">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="10" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetNodesBtn"
+              data-id="10"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer11">
+            <canvas id="canvasPreview11"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeePlasmaBtn" data-id="11">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="11" data-price="600">
+              Купить (600 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetPlasmaBtn"
+              data-id="11"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer12">
+            <canvas id="canvasPreview12"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeFogBtn" data-id="12">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="12" data-price="300">
+              Купить (300 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetFogBtn"
+              data-id="12"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer13">
+            <canvas id="canvasPreview13"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn13" data-id="13">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="13" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn13"
+              data-id="13"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer14">
+            <canvas id="canvasPreview14"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn14" data-id="14">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="14" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn14"
+              data-id="14"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer15">
+            <canvas id="canvasPreview15"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn15" data-id="15">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="15" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn15"
+              data-id="15"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer16">
+            <canvas id="canvasPreview16"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn16" data-id="16">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="16" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn16"
+              data-id="16"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer17">
+            <canvas id="canvasPreview17"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn17" data-id="17">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="17" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn17"
+              data-id="17"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer18">
+            <canvas id="canvasPreview18"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn18" data-id="18">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="18" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn18"
+              data-id="18"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer19">
+            <canvas id="canvasPreview19"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn19" data-id="19">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="19" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn19"
+              data-id="19"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer20">
+            <canvas id="canvasPreview20"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn20" data-id="20">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="20" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn20"
+              data-id="20"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer21">
+            <canvas id="canvasPreview21"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn21" data-id="21">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="21" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn21"
+              data-id="21"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer22">
+            <canvas id="canvasPreview22"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn22" data-id="22">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="22" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn22"
+              data-id="22"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer23">
+            <canvas id="canvasPreview23"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn23" data-id="23">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="23" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn23"
+              data-id="23"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer24">
+            <canvas id="canvasPreview24"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn24" data-id="24">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="24" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn24"
+              data-id="24"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer25">
+            <canvas id="canvasPreview25"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn25" data-id="25">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="25" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn25"
+              data-id="25"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer26">
+            <canvas id="canvasPreview26"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn26" data-id="26">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="26" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn26"
+              data-id="26"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer27">
+            <canvas id="canvasPreview27"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn27" data-id="27">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="27" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn27"
+              data-id="27"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer28">
+            <canvas id="canvasPreview28"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn28" data-id="28">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="28" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn28"
+              data-id="28"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer29">
+            <canvas id="canvasPreview29"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn29" data-id="29">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="29" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn29"
+              data-id="29"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer30">
+            <canvas id="canvasPreview30"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn30" data-id="30">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="30" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn30"
+              data-id="30"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer31">
+            <canvas id="canvasPreview31"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn31" data-id="31">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="31" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn31"
+              data-id="31"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer32">
+            <canvas id="canvasPreview32"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn32" data-id="32">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="32" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn32"
+              data-id="32"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer33">
+            <canvas id="canvasPreview33"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn33" data-id="33">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="33" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn33"
+              data-id="33"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer34">
+            <canvas id="canvasPreview34"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn34" data-id="34">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="34" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn34"
+              data-id="34"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer35">
+            <canvas id="canvasPreview35"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn35" data-id="35">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="35" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn35"
+              data-id="35"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer36">
+            <canvas id="canvasPreview36"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn36" data-id="36">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="36" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn36"
+              data-id="36"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer37">
+            <canvas id="canvasPreview37"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn37" data-id="37">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="37" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn37"
+              data-id="37"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer38">
+            <canvas id="canvasPreview38"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn38" data-id="38">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="38" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn38"
+              data-id="38"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer39">
+            <canvas id="canvasPreview39"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn39" data-id="39">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="39" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn39"
+              data-id="39"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer40">
+            <canvas id="canvasPreview40"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn40" data-id="40">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="40" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn40"
+              data-id="40"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer41">
+            <canvas id="canvasPreview41"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn41" data-id="41">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="41" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn41"
+              data-id="41"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer42">
+            <canvas id="canvasPreview42"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn42" data-id="42">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="42" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn42"
+              data-id="42"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer43">
+            <canvas id="canvasPreview43"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn43" data-id="43">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="43" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn43"
+              data-id="43"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer44">
+            <canvas id="canvasPreview44"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn44" data-id="44">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="44" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn44"
+              data-id="44"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer45">
+            <canvas id="canvasPreview45"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn45" data-id="45">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="45" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn45"
+              data-id="45"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer46">
+            <canvas id="canvasPreview46"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn46" data-id="46">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="46" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn46"
+              data-id="46"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer47">
+            <canvas id="canvasPreview47"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn47" data-id="47">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="47" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn47"
+              data-id="47"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer48">
+            <canvas id="canvasPreview48"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn48" data-id="48">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="48" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn48"
+              data-id="48"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer49">
+            <canvas id="canvasPreview49"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn49" data-id="49">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="49" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn49"
+              data-id="49"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer50">
+            <canvas id="canvasPreview50"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn50" data-id="50">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="50" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn50"
+              data-id="50"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer51">
+            <canvas id="canvasPreview51"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn51" data-id="51">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="51" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn51"
+              data-id="51"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer52">
+            <canvas id="canvasPreview52"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn52" data-id="52">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="52" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn52"
+              data-id="52"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer53">
+            <canvas id="canvasPreview53"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn53" data-id="53">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="53" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn53"
+              data-id="53"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer54">
+            <canvas id="canvasPreview54"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn54" data-id="54">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="54" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn54"
+              data-id="54"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer55">
+            <canvas id="canvasPreview55"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn55" data-id="55">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="55" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn55"
+              data-id="55"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer56">
+            <canvas id="canvasPreview56"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn56" data-id="56">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="56" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn56"
+              data-id="56"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer57">
+            <canvas id="canvasPreview57"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn57" data-id="57">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="57" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn57"
+              data-id="57"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer58">
+            <canvas id="canvasPreview58"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn58" data-id="58">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="58" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn58"
+              data-id="58"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer59">
+            <canvas id="canvasPreview59"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn59" data-id="59">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="59" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn59"
+              data-id="59"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer60">
+            <canvas id="canvasPreview60"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn60" data-id="60">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="60" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn60"
+              data-id="60"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer61">
+            <canvas id="canvasPreview61"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn61" data-id="61">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="61" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn61"
+              data-id="61"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer62">
+            <canvas id="canvasPreview62"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn62" data-id="62">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="62" data-price="500">
+              Купить (500 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn62"
+              data-id="62"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="Baground-Wrapper">
+        <div class="Sakurabaground">
+          <div class="baground-preview" id="previewContainer63">
+            <canvas id="canvasPreview63"></canvas>
+          </div>
+          <div class="btns">
+            <button class="SetSakura SeeBtn" id="SeeBtn63" data-id="63">
+              Предварительный просмотр
+            </button>
+            <button class="SetSakura BuyBtn" data-id="63" data-price="1000">
+              Купить (1000 FP)
+            </button>
+            <button
+              class="SetSakura SetBtn"
+              id="SetBtn63"
+              data-id="63"
+              style="display: none"
+            >
+              Установить фон
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button
+      class="menu-btn"
+      data-type="back"
+      data-title="Вернуться на главную страницу"
+      onclick="location.href = '../MainTrainingPage/index.html'"
+    ></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="main.js"></script>
+    <script src="/sync.js"></script>
+  </body>
+</html>

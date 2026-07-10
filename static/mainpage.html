@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastType — Тренажер печати нового поколения</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Подключение внешнего файла стилей -->
+    <link rel="stylesheet" href="mainpage.css">
+    <!-- Шрифт Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color) !important;
+            color: var(--text-color) !important;
+        }
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden relative min-h-screen">
+
+    <!-- Фоновые динамические эффекты (сетка и свечение темы) -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full glow-orb-1 opacity-20"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full glow-orb-2 opacity-20"></div>
+        <div class="absolute inset-0 tech-grid"></div>
+    </div>
+
+    <!-- Навигационная панель -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-[var(--bg-color)]/70 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2 group cursor-pointer" onclick="window.location.reload()">
+                <i data-lucide="terminal" class="w-6 h-6 theme-color-text"></i>
+                <span class="text-xl font-bold tracking-wider text-white logo-glow">FAST TYPE</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+                <a href="#about" class="hover:text-white transition-colors">О проекте</a>
+                <a href="#features" class="hover:text-white transition-colors">Возможности</a>
+                <a href="#tech" class="hover:text-white transition-colors">Технологии</a>
+            </div>
+            <button onclick="window.location.href = './Register/index.html'" class="px-6 py-2.5 rounded-full bg-white/5 border border-white/10 text-white text-sm font-medium hover:bg-white/10 hover:border-[var(--main-color)]/50 transition-all duration-300 shadow-[0_0_15px_rgba(0,0,0,0)] hover:shadow-[0_0_20px_var(--main-color)]">
+                Начать бесплатно
+            </button>
+        </div>
+    </nav>
+
+    <!-- Главный экран (Hero Section) -->
+    <section class="relative z-10 pt-40 pb-20 px-6 max-w-7xl mx-auto flex flex-col items-center text-center">
+        <!-- Анимированный элемент появления -->
+        <div class="reveal opacity-0 translate-y-8 transition-all duration-1000 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--main-color)]/10 border border-[var(--main-color)]/20 theme-color-text text-xs font-mono mb-8">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--main-color)] opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-[var(--main-color)]"></span>
+            </span>
+            Тренажер печати нового поколения
+        </div>
+
+        <h1 class="reveal opacity-0 translate-y-8 transition-all duration-1000 delay-100 text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+            Печатайте со скоростью <br class="hidden md:block">
+            <span class="theme-gradient-text logo-glow">мысли.</span>
+        </h1>
+
+        <p class="reveal opacity-0 translate-y-8 transition-all duration-1000 delay-200 max-w-2xl text-lg md:text-xl text-gray-400 mb-10 leading-relaxed">
+            Современный веб-интерфейс, глубокая серверная аналитика и полная персонализация. Интеллектуальная экосистема для развития слепой печати без визуального шума.
+        </p>
+
+        <div class="reveal opacity-0 translate-y-8 transition-all duration-1000 delay-300 flex flex-col sm:flex-row gap-4 mb-20">
+            <button onclick="window.location.href = './Register/index.html'" class="px-8 py-4 rounded-lg theme-btn-primary font-bold flex items-center justify-center gap-2 transition-all shadow-[0_0_30px_-5px_var(--main-color)] hover:shadow-[0_0_40px_-5px_var(--main-color)] hover:-translate-y-1">
+                Начать тренировку <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </button>
+            <a href="#about" class="px-8 py-4 rounded-lg bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-all hover:-translate-y-1 flex items-center">
+                Узнать больше
+            </a>
+        </div>
+
+        <!-- Мокап интерфейса -->
+        <div class="reveal opacity-0 translate-y-12 transition-all duration-1000 delay-500 w-full max-w-5xl mx-auto rounded-2xl border border-white/10 bg-[#0c0c0e]/80 backdrop-blur-xl shadow-2xl overflow-hidden relative group">
+            <div class="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+            
+            <!-- Шапка окна -->
+            <div class="h-10 border-b border-white/5 flex items-center px-4 gap-2 bg-black/20">
+                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                <div class="mx-auto text-xs font-mono text-gray-500 flex items-center gap-2">
+                    <i data-lucide="keyboard" class="w-3 h-3"></i> fasttype.app/train
+                </div>
+            </div>
+            
+            <!-- Рабочая область -->
+            <div class="p-10 md:p-20 flex flex-col items-center justify-center min-h-[400px]">
+                <div class="w-full max-w-3xl font-mono text-2xl md:text-4xl leading-relaxed text-gray-600 select-none relative text-left">
+                    <span class="text-gray-400">the quick brown fox </span>
+                    <span class="text-white relative">
+                        jumps
+                        <span class="absolute -bottom-1 left-0 w-full h-[3px] bg-[var(--main-color)] rounded-full shadow-[0_0_10px_var(--main-color)]"></span>
+                        <span class="absolute top-1 -right-1 w-[2px] h-[80%] bg-[var(--main-color)] animate-pulse shadow-[0_0_8px_var(--main-color)]"></span>
+                    </span>
+                    <span> over the lazy dog. </span>
+                    <span class="opacity-30 blur-[1px]">practice makes perfect and speed comes with time.</span>
+                </div>
+                
+                <!-- Статистика -->
+                <div class="mt-16 flex gap-12 text-sm font-mono text-gray-500">
+                    <div class="flex flex-col items-center"><span class="text-2xl theme-color-text font-bold">124</span> WPM</div>
+                    <div class="flex flex-col items-center"><span class="text-2xl text-[var(--sub-color)] font-bold">98%</span> ТОЧНОСТЬ</div>
+                    <div class="flex flex-col items-center"><span class="text-2xl text-white font-bold">15s</span> ВРЕМЯ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел "О проекте" -->
+    <section id="about" class="relative z-10 py-24 px-6 border-t border-white/5 bg-black/20">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <h2 class="reveal opacity-0 -translate-x-12 transition-all duration-1000 text-3xl md:text-5xl font-bold text-white leading-tight">
+                    Искусство фокуса <br>и абсолютной <span class="theme-color-text">скорости.</span>
+                </h2>
+                <div class="reveal opacity-0 translate-x-12 transition-all duration-1000 delay-200 space-y-6 text-gray-400 text-lg leading-relaxed">
+                    <p>
+                        В цифровую эпоху скорость набора текста определяет скорость вашего мышления. FastType создан не просто как тренажер, а как среда для снижения когнитивной нагрузки.
+                    </p>
+                    <p>
+                        Мы убрали весь визуальный шум. На экране остаетесь только вы, текст и асинхронные алгоритмы, которые анализируют динамику каждого нажатия.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел "Преимущества" -->
+    <section id="features" class="relative z-10 py-24 px-6 max-w-7xl mx-auto">
+        <div class="reveal opacity-0 transition-all duration-1000 text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Экосистема возможностей</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Все необходимое для профессионального роста, упакованное в элегантный интерфейс.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Карточка 1 -->
+            <div class="reveal opacity-0 translate-y-12 transition-all duration-1000 delay-100 group p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-[var(--main-color)]/30 transition-all duration-500">
+                <div class="w-12 h-12 rounded-lg bg-[var(--main-color)]/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="settings" class="w-6 h-6 theme-color-text"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Кастомизация клавиатуры</h3>
+                <p class="text-gray-400 leading-relaxed">
+                    Полный контроль над рабочим пространством. Настраивайте размеры клавиш, прозрачность элементов и тени под физическую раскладку вашего устройства.
+                </p>
+            </div>
+
+            <!-- Карточка 2 -->
+            <div class="reveal opacity-0 translate-y-12 transition-all duration-1000 delay-200 group p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-[var(--main-color)]/30 transition-all duration-500">
+                <div class="w-12 h-12 rounded-lg bg-[var(--main-color)]/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="bar-chart-3" class="w-6 h-6 theme-color-text"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Глубокая аналитика</h3>
+                <p class="text-gray-400 leading-relaxed">
+                    Профиль с детализированной тепловой картой задержек нажатий. Выявляйте проблемные буквенные сочетания и отслеживайте динамику WPM.
+                </p>
+            </div>
+
+            <!-- Карточка 3 -->
+            <div class="reveal opacity-0 translate-y-12 transition-all duration-1000 delay-300 group p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-[var(--main-color)]/30 transition-all duration-500">
+                <div class="w-12 h-12 rounded-lg bg-[var(--main-color)]/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="zap" class="w-6 h-6 theme-color-text"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Адаптивный алгоритм</h3>
+                <p class="text-gray-400 leading-relaxed">
+                    Система динамически изменяет характер тренировок, генерируя упражнения на основе истории ваших ошибок и снижения темпа.
+                </p>
+            </div>
+
+            <!-- Карточка 4 -->
+            <div class="reveal opacity-0 translate-y-12 transition-all duration-1000 delay-400 group p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-[var(--main-color)]/30 transition-all duration-500">
+                <div class="w-12 h-12 rounded-lg bg-[var(--main-color)]/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="smartphone" class="w-6 h-6 theme-color-text"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Гибридная экосистема</h3>
+                <p class="text-gray-400 leading-relaxed">
+                    Интеграция с кроссплатформенным Telegram-ботом. Контролируйте результаты, просматривайте глобальный топ и управляйте профилем из чата.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Как это работает -->
+    <section class="relative z-10 py-24 px-6 border-y border-white/5 bg-black/40">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="reveal opacity-0 transition-all duration-1000 text-3xl font-bold text-white text-center mb-16">Путь к мастерству</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                <div class="hidden md:block absolute top-1/2 left-[10%] right-[10%] h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-y-1/2 z-0"></div>
+                
+                <!-- Шаг 1 -->
+                <div class="reveal opacity-0 translate-y-8 transition-all duration-1000 delay-100 relative z-10 flex flex-col items-center text-center p-6 bg-[var(--bg-color)] rounded-xl border border-white/5">
+                    <span class="text-5xl font-mono font-bold text-white/5 mb-4">01</span>
+                    <h4 class="text-lg font-bold text-white mb-2">Пройдите тест</h4>
+                    <p class="text-sm text-gray-500">Сделайте пробный замер базовой скорости на контрольных текстах.</p>
+                </div>
+                <!-- Шаг 2 -->
+                <div class="reveal opacity-0 translate-y-8 transition-all duration-1000 delay-200 relative z-10 flex flex-col items-center text-center p-6 bg-[var(--bg-color)] rounded-xl border border-white/5">
+                    <span class="text-5xl font-mono font-bold text-white/5 mb-4">02</span>
+                    <h4 class="text-lg font-bold text-white mb-2">Изучите аналитику</h4>
+                    <p class="text-sm text-gray-500">Проанализируйте распределение ошибок и скорость отклика пальцев.</p>
+                </div>
+                <!-- Шаг 3 -->
+                <div class="reveal opacity-0 translate-y-8 transition-all duration-1000 delay-300 relative z-10 flex flex-col items-center text-center p-6 bg-[var(--bg-color)] rounded-xl border border-white/5">
+                    <span class="text-5xl font-mono font-bold text-white/5 mb-4">03</span>
+                    <h4 class="text-lg font-bold text-white mb-2">Прогрессируйте</h4>
+                    <p class="text-sm text-gray-500">Выполняйте подобранные системой упражнения для выравнивания темпа.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Технологический стек -->
+    <section id="tech" class="relative z-10 py-24 px-6 max-w-7xl mx-auto">
+        <div class="reveal opacity-0 transition-all duration-1000 flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Под капотом</h2>
+                <p class="text-gray-400 max-w-xl">Чистая архитектура и классические алгоритмические решения для стабильности системы.</p>
+            </div>
+            <div class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-gray-400">
+                Архитектура системы v1.1.0
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Карта 1 -->
+            <div class="reveal opacity-0 translate-y-12 transition-all duration-1000 delay-100 p-6 rounded-2xl bg-gradient-to-b from-white/[0.05] to-transparent border border-white/10">
+                <i data-lucide="server" class="w-8 h-8 theme-color-text mb-4"></i>
+                <h4 class="text-lg font-bold text-white font-mono mb-2">FastAPI (Python)</h4>
+                <p class="text-sm text-gray-400 leading-relaxed">
+                    Высокопроизводительный асинхронный серверный фреймворк, обеспечивающий передачу данных профиля с минимальным временем отклика.
+                </p>
+            </div>
+            <!-- Карта 2 -->
+            <div class="reveal opacity-0 translate-y-12 transition-all duration-1000 delay-200 p-6 rounded-2xl bg-gradient-to-b from-white/[0.05] to-transparent border border-white/10">
+                <i data-lucide="database" class="w-8 h-8 theme-color-text mb-4"></i>
+                <h4 class="text-lg font-bold text-white font-mono mb-2">data.json</h4>
+                <p class="text-sm text-gray-400 leading-relaxed">
+                    Быстрая и надежная сериализация пользовательских данных без накладных расходов. Автономное хранение профилей на сервере.
+                </p>
+            </div>
+            <!-- Карта 3 -->
+            <div class="reveal opacity-0 translate-y-12 transition-all duration-1000 delay-300 p-6 rounded-2xl bg-gradient-to-b from-white/[0.05] to-transparent border border-white/10">
+                <i data-lucide="layers" class="w-8 h-8 theme-color-text mb-4"></i>
+                <h4 class="text-lg font-bold text-white font-mono mb-2">Bubble Sort</h4>
+                <p class="text-sm text-gray-400 leading-relaxed">
+                    Собственная реализация сортировки пузырьком для формирования ранжированных таблиц рекордов без сторонних зависимостей.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал (Footer) -->
+    <footer class="relative z-10 border-t border-white/10 bg-black/50 pt-16 pb-8 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-10 mb-16">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <i data-lucide="terminal" class="w-5 h-5 theme-color-text"></i>
+                    <span class="text-lg font-bold tracking-wider text-white">FAST TYPE</span>
+                </div>
+                <p class="text-sm text-gray-500 max-w-xs">
+                    Инструмент для развития навыков слепой печати и визуальной эргономики.
+                </p>
+            </div>
+            
+            <div class="flex gap-16">
+                <div class="flex flex-col gap-3 text-sm">
+                  <span class="text-white font-bold mb-1">Продукт</span>
+                  <a href="#" class="text-gray-500 hover:text-[var(--main-color)] transition-colors">О проекте</a>
+                  <a href="#features" class="text-gray-500 hover:text-[var(--main-color)] transition-colors">Возможности</a>
+                  <a href="#tech" class="text-gray-500 hover:text-[var(--main-color)] transition-colors">Технологии</a>
+                </div>
+                <div class="flex flex-col gap-3 text-sm">
+                  <span class="text-white font-bold mb-1">Разработчикам</span>
+                  <a href="#" class="text-gray-500 hover:text-[var(--main-color)] transition-colors">API Документация</a>
+                  <a href="https://t.me/Yourpersonaltrain_bot" class="text-gray-500 hover:text-[var(--main-color)] transition-colors">Telegram Бот</a>
+                  <a href="#" class="text-gray-500 hover:text-[var(--main-color)] transition-colors">GitHub</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-gray-600">
+            <p>© 2025 FastType Ecosystem. Все права защищены.</p>
+            <div class="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-md border border-white/5">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                <span class="Version">FastType Экосистема • Версия 1.1.0</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Скрипт инициализации иконок Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Подключаем скрипт синхронизации первее основных скриптов -->
+    <script src="/sync.js"></script>
+    <script>
+        // Инициализация SVG-иконок
+        lucide.createIcons();
+
+        // Скрипт плавного появления элементов при прокрутке (Scroll Reveal)
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            const triggerBottom = window.innerHeight * 0.85;
+            
+            reveals.forEach(reveal => {
+                const revealTop = reveal.getBoundingClientRect().top;
+                
+                if (revealTop < triggerBottom) {
+                    reveal.classList.remove('opacity-0', 'translate-y-8', 'translate-y-12', '-translate-x-12', 'translate-x-12');
+                    reveal.classList.add('opacity-100', 'translate-y-0', 'translate-x-0');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    </script>
+</body>
+</html>

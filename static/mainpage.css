@@ -1,0 +1,82 @@
+/* mainpage.css */
+
+:root {
+  /* Дефолтные стили темы NightNeon на случай, если бэкенд еще не загрузился */
+  --bg-color: #0b0f1a;
+  --text-color: #eaeaff;
+  --panel-color: #161b2e;
+  --sub-color: #2a2f4a;
+  --main-color: #6c7cff;
+}
+
+/* Фоновая технологическая сетка */
+.tech-grid {
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, #000 70%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, #000 70%, transparent 100%);
+}
+
+/* Свечение логотипа под цвет темы */
+.logo-glow {
+    text-shadow: 0 0 15px var(--main-color);
+}
+
+/* Адаптивный цвет текста темы */
+.theme-color-text {
+    color: var(--main-color) !important;
+}
+
+/* Динамические фоновые неоновые круги, меняющиеся вместе с темой */
+.glow-orb-1 {
+    background-color: var(--main-color);
+    filter: blur(120px);
+}
+
+.glow-orb-2 {
+    background-color: var(--sub-color);
+    filter: blur(120px);
+}
+
+/* Красивый градиентный текст, завязанный на тему */
+.theme-gradient-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to r, var(--main-color), #ffffff);
+}
+
+/* Главная кнопка действия */
+.theme-btn-primary {
+    background-color: var(--main-color) !important;
+    color: var(--bg-color) !important;
+}
+
+.theme-btn-primary:hover {
+    filter: brightness(1.15);
+}
+
+/* Настройки плавных переходов по умолчанию для анимированных блоков */
+.reveal {
+    will-change: transform, opacity;
+}
+
+/* Кастомный тонкий скроллбар в тон проекта */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--sub-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--main-color);
+}

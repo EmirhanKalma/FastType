@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Тест по горячим клавишам</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+  <rect width='100' height='100' rx='20' fill='%230a0a0f'/> 
+  <text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' 
+        fill='%235d5dff' font-family='Arial Black, sans-serif' font-weight='900' font-size='70'>
+    F
+  </text>
+</svg>">
+</head>
+<span class="Version">Version:1.0.0</span>
+<body id="bgContainer" class="game-body">
+    <div class="vignette"></div>
+    <div class="game-container">
+        <header class="game-header">
+            <div class="stat-group">
+                <span class="label">ОЧКИ</span>
+                <span id="score" class="value">000</span>
+            </div>
+            <div class="timer-wrapper">
+                <div id="timer-arc"></div>
+                <span id="timer">30</span>
+            </div>
+            <div class="stat-group">
+                <span class="label">РЕКОРД</span>
+                <span id="best" class="value">000</span>
+            </div>
+        </header>
+
+        <main class="game-main">
+            <div id="hotkey-card" class="hotkey-card">
+                <div class="card-glow"></div>
+                <p class="hint-text">ВЫПОЛНИТЕ КОМБИНАЦИЮ</p>
+                <h1 id="task-name">START</h1>
+                <div id="visual-keys" class="visual-keys">
+                    </div>
+            </div>
+
+            <div class="skip-container">
+        <button id="skip-btn" class="skip-btn" onclick="skipTask()">ПРОПУСТИТЬ (ESC)</button>
+    </div>
+        </main>
+
+        <footer class="game-footer">
+            <div class="progress-bar-bg">
+                <div id="progress-bar"></div>
+            </div>
+        </footer>
+    </div>
+
+    <div id="result-overlay" class="modal-blur" style="display:none;">
+        <div class="modal-content">
+            <h2 class="main-color-text">ВРЕМЯ ВЫШЛО</h2>
+            <div class="final-stats">
+                <div>SCORE: <span id="final-score">0</span></div>
+            </div>
+            <button class="action-btn" onclick="startGame()">ИГРАТЬ СНОВА</button>
+            <button class="action-btn ghost" onclick="location.href='../index.html'">В МЕНЮ</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

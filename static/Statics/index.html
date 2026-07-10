@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблица лидеров - FAST TYPE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+  <rect width='100' height='100' rx='20' fill='%230a0a0f'/> 
+  <text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' 
+        fill='%235d5dff' font-family='Arial Black, sans-serif' font-weight='900' font-size='70'>
+    F
+  </text>
+</svg>">
+</head>
+<body>
+    <!-- bgContainer нужен, чтобы на фоне работали выбранные анимации дождя/сакуры/матрицы -->
+    <div id="bgContainer">
+      <canvas id="bgCanvas"></canvas>
+    </div>
+    
+    <span class="Version">Version:1.0.0</span>
+
+    <div class="leaderboard-container">
+        <h1 class="leaderboard-title">🏆 ТАБЛИЦА ЛИДЕРОВ 🏆</h1>
+        
+        <div class="leaderboard-card">
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Место</th>
+                        <th>Игрок</th>
+                        <th>Рекорд WPM</th>
+                        <th>Баланс FP</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-body">
+                    <!-- Строки лидеров будут генерироваться JS динамически -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="actions">
+            <button class="menu-btn-back" onclick="location.href='/MainTrainingPage/index.html'">На главную</button>
+        </div>
+    </div>
+
+    <!-- Загружаем темы, фоны и анимации, затем рендерим таблицу -->
+    <script src="/sync.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

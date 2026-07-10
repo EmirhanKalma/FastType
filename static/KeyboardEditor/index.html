@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Настройка Клавиатуры</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+  <rect width='100' height='100' rx='20' fill='%230a0a0f'/> 
+  <text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' 
+        fill='%235d5dff' font-family='Arial Black, sans-serif' font-weight='900' font-size='70'>
+    F
+  </text>
+</svg>">
+  </head>
+  <body>
+    <span class="Version">Version:1.0.0</span>
+    
+    <div id="keyboardset" class="keyboardset">
+      <div id="inputtext" class="inputtext"></div>
+      <div id="colorchoose" class="colorchoose"></div>
+      <div id="keyboard" class="keyboard">
+        <div class="first-row">
+          <div id="q" data-key="KeyQ" class="key Q">Q</div>
+          <div id="w" data-key="KeyW" class="key W">W</div>
+          <div id="e" data-key="KeyE" class="key E">E</div>
+          <div id="r" data-key="KeyR" class="key R">R</div>
+          <div id="t" data-key="KeyT" class="key T">T</div>
+          <div id="y" data-key="KeyY" class="key Y">Y</div>
+          <div id="u" data-key="KeyU" class="key U">U</div>
+          <div id="i" data-key="KeyI" class="key I">I</div>
+          <div id="o" data-key="KeyO" class="key O">O</div>
+          <div id="p" data-key="KeyP" class="key P">P</div>
+        </div>
+        <div class="second-row">
+          <div id="a" data-key="KeyA" class="key A">A</div>
+          <div id="s" data-key="KeyS" class="key S">S</div>
+          <div id="d" data-key="KeyD" class="key D">D</div>
+          <div id="f" data-key="KeyF" class="key F">F</div>
+          <div id="g" data-key="KeyG" class="key G">G</div>
+          <div id="h" data-key="KeyH" class="key H">H</div>
+          <div id="j" data-key="KeyJ" class="key J">J</div>
+          <div id="k" data-key="KeyK" class="key K">K</div>
+          <div id="l" data-key="KeyL" class="key L">L</div>
+        </div>
+        <div class="third-row">
+          <div id="z" data-key="KeyZ" class="key Z">Z</div>
+          <div id="x" data-key="KeyX" class="key X">X</div>
+          <div id="c" data-key="KeyC" class="key C">C</div>
+          <div id="v" data-key="KeyV" class="key V">V</div>
+          <div id="b" data-key="KeyB" class="key B">B</div>
+          <div id="n" data-key="KeyN" class="key N">N</div>
+          <div id="m" data-key="KeyM" class="key M">M</div>
+        </div>
+        <div id="space" class="space"></div>
+      </div>
+      <button id="fullscreenBtn">Раскрыть на весь экран</button>
+    </div>
+
+    <h1 class="SettingsKeyColor">Настройка цветов клавиатуры</h1>
+    <div class="gradients-container">
+      <div class="gradient-card first-gradient">
+        <img
+          class="gradient-preview"
+          src="./img/RED-BLACK.png"
+          alt="Red Black"
+        />
+        <button id="btn-red" onclick="Red()" class="set-color-btn">
+          Установить цвет
+        </button>
+      </div>
+      <div class="gradient-card second-gradient">
+        <img
+          class="gradient-preview"
+          src="./img/GREY-ORANGE.png"
+          alt="Grey Orange"
+        />
+        <button id="btn-yellow" onclick="Yellow()" class="set-color-btn">
+          Установить цвет
+        </button>
+      </div>
+      <div class="gradient-card third-gradient">
+        <img
+          class="gradient-preview"
+          src="./img/GREY-BLUE.png"
+          alt="Grey Blue"
+        />
+        <button id="btn-blue" onclick="Blue()" class="set-color-btn">
+          Установить цвет
+        </button>
+      </div>
+      <div class="gradient-card fourth-gradient">
+        <img
+          class="gradient-preview"
+          src="./img/GREY-BLACK.png"
+          alt="Grey Black"
+        />
+        <button id="btn-black" onclick="Black()" class="set-color-btn">
+          Установить цвет
+        </button>
+      </div>
+      <div class="gradient-card first-gradient">
+        <img
+          class="gradient-preview"
+          src="./img/Black-White.png"
+          alt="Black White"
+        />
+        <button id="btn-shadow" onclick="Shadow()" class="set-color-btn">
+          Установить цвет
+        </button>
+      </div>
+      <div class="gradient-card second-gradient">
+        <img
+          class="gradient-preview"
+          src="./img/Blue-Blue.png"
+          alt="Blue Blue"
+        />
+        <button id="btn-blueone" onclick="BlueOne()" class="set-color-btn">
+          Установить цвет
+        </button>
+      </div>
+      <div class="gradient-card third-gradient">
+        <img
+          class="gradient-preview"
+          src="./img/Blue-grey.png"
+          alt="Blue Grey"
+        />
+        <button id="btn-greyblue" onclick="GreayBlue()" class="set-color-btn">
+          Установить цвет
+        </button>
+      </div>
+      <div class="gradient-card fourth-gradient">
+        <img
+          class="gradient-preview"
+          src="./img/Grey-Blue2.png"
+          alt="Grey Blue 2"
+        />
+        <button id="btn-blackgrey" onclick="BlackGrey()" class="set-color-btn">
+          Установить цвет
+        </button>
+      </div>
+      <div class="gradient-card">
+        <img class="gradient-preview" src="./img/1511.png" alt="1511" />
+        <button id="btn-15" onclick="onefive()" class="set-color-btn">
+          Установить цвет
+        </button>
+      </div>
+      <div class="gradient-card">
+        <img class="gradient-preview" src="./img/1652.png" alt="1652" />
+        <button id="btn-16" onclick="onesix()" class="set-color-btn">
+          Установить цвет
+        </button>
+      </div>
+      <div class="gradient-card">
+        <img class="gradient-preview" src="./img/1358.png" alt="1358" />
+        <button id="btn-18" onclick="oneeight()" class="set-color-btn">
+          Установить цвет
+        </button>
+      </div>
+      <div class="gradient-card">
+        <img class="gradient-preview" src="./img/208.png" alt="208" />
+        <button id="btn-19" onclick="onenine()" class="set-color-btn">
+          Установить цвет
+        </button>
+      </div>
+      <div class="gradient-card">
+        <img class="gradient-preview" src="./img/303.png" alt="303" />
+        <button id="btn-07" onclick="oneseven()" class="set-color-btn">
+          Установить цвет
+        </button>
+      </div>
+      <div class="gradient-card">
+        <img class="gradient-preview" src="./img/109.png" alt="109" />
+        <button id="btn-11" onclick="oneeleven()" class="set-color-btn">
+          Установить цвет
+        </button>
+      </div>
+      <div class="gradient-card">
+        <img class="gradient-preview" src="./img/503.png" alt="503" />
+        <button id="btn-10" onclick="oneten()" class="set-color-btn">
+          Установить цвет
+        </button>
+      </div>
+      <div class="gradient-card">
+        <img class="gradient-preview" src="./img/None.png" alt="503" />
+        <button id="btn-10" onclick="None()" class="set-color-btn">
+          Убрать цвет
+        </button>
+      </div>
+    </div>
+
+    <h1 class="SettingsKeyColor">Настройка клавиатуры</h1>
+    <div class="keyboard-settings">
+      <div class="rangesize">
+        <input
+          type="range"
+          id="keyboardsizeedit"
+          min="0.5"
+          max="1.5"
+          step="0.001"
+        />
+        <p id="keyboardsizeeditvalue">Размер клавиатуры: </p>
+      </div>
+      <div class="checkboxsee">
+        <p id="keyboardseen">Видимость:</p>
+        <input type="checkbox" id="keyboardsee" checked />
+      </div>
+      <div class="main-settings-container">
+        <div class="opacity-scale-box">
+          <input type="color" id="KeyboardColorStatus" value="#ffffff" />
+          <p id="KeyboardColorStatus">Цвет клавиатуры</p>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="SettingsKeyColor">Настройка клавиш</h1>
+    <div class="keyboard-settings">
+      <div class="rangesize">
+        <input type="range" id="keysize" min="0" max="1" step="0.001" />
+        <p id="keysizevalue">Прозрачность и размер:</p>
+      </div>
+
+      <div class="main-settings-container">
+        <div class="opacity-scale-box">
+          <input type="color" id="textColorPicker" value="#ffffff" />
+          <p id="textColorStatus">Цвет текста</p>
+        </div>
+        <div class="opacity-scale-box">
+          <input type="color" id="BoxShadowColorPicker" value="#ffffff" />
+          <p id="textColorStatus">Цвет теней</p>
+          <button id="ShadowNone">Убрать тени</button>
+        </div>
+        <div class="opacity-scale-box">
+          <input type="color" id="BorderColorPicker" value="#ffffff" />
+          <p id="textColorStatus">Цвет обводки клавиш</p>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="SettingsKeyColor">Настройка цветов Анимации</h1>
+    <div class="gradients-container">
+      <div class="gradient-card">
+        <img class="gradient-preview" src="./img/2151.png" alt="Banan Blue" />
+        <button onclick="one()" class="set-color-btn">Установить цвет</button>
+      </div>
+
+      <div class="gradient-card">
+        <img class="gradient-preview" src="./img/1272.png" alt="Blue Dark" />
+        <button onclick="two()" class="set-color-btn">Установить цвет</button>
+      </div>
+
+      <div class="gradient-card">
+        <img class="gradient-preview" src="./img/834.png" alt="Blue Salat" />
+        <button onclick="three()" class="set-color-btn">Установить цвет</button>
+      </div>
+
+      <div class="gradient-card">
+        <img class="gradient-preview" src="./img/330.png" alt="Red Blue" />
+        <button onclick="four()" class="set-color-btn">Установить цвет</button>
+      </div>
+
+      <div class="gradient-card">
+        <img class="gradient-preview" src="./img/349.png" alt="Banan Blue" />
+        <button onclick="five()" class="set-color-btn">Установить цвет</button>
+      </div>
+
+      <div class="gradient-card">
+        <img class="gradient-preview" src="./img/930.png" alt="Blue Dark" />
+        <button onclick="six()" class="set-color-btn">Установить цвет</button>
+      </div>
+
+      <div class="gradient-card">
+        <img class="gradient-preview" src="./img/1418.png" alt="Blue Salat" />
+        <button onclick="seven()" class="set-color-btn">Установить цвет</button>
+      </div>
+
+      <div class="gradient-card">
+        <img class="gradient-preview" src="./img/2091.png" alt="Red Blue" />
+        <button onclick="eight()" class="set-color-btn">Установить цвет</button>
+      </div>
+
+
+    </div>
+
+    <h1 class="SettingsKeyColor">Настройка Анимации</h1>
+
+    <div class="keyboard-settings">
+      <div class="rangesize">
+        <input type="range" id="keyhover" min="0.001" max="0.2" step="0.001" />
+        <p id="keysizevalue1">Длительность анимации нажатия:</p>
+      </div>
+      <div class="rangesize">
+        <input type="range" id="keyhoverup" min="0.06" max="1.4" step="0.001" />
+        <p id="keysizevalue2">Длительность возврата:</p>
+      </div>
+      <div class="main-settings-container">
+        <div class="opacity-scale-box">
+          <input type="color" name="" id="BagroundHoverColorPicker" />
+          <p id="textColorStatus">Цвет клавиш</p>
+        </div>
+        <div class="opacity-scale-box">
+          <input type="color" name="" id="TextHoverColorPicker" />
+          <p id="textColorStatus">Цвет текста</p>
+        </div>
+        <div class="opacity-scale-box">
+          <input type="color" name="" id="ShadowColorPicker" />
+          <p id="textColorStatus">Цвет теней</p>
+          <button id="ShadowNone1">Убрать тени</button>
+        </div>
+      </div>
+      <form action="">
+        <button id="DeleteAll">Удалить все стили</button>
+      </form>
+    </div>
+
+
+            <button 
+    class="menu-btn" 
+    data-type="back" 
+    data-title="Вернуться на главную страницу" 
+    onclick="location.href='../MainTrainingPage/index.html'">
+  </button>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="main.js"></script>
+    <script src="/sync.js"></script>
+  </body>
+</html>

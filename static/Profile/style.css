@@ -1,0 +1,338 @@
+/* static/Profile/style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg-color: #0b0f1a;
+  --text-color: #eaeaff;
+  --panel-color: #161b2e;
+  --sub-color: #2a2f4a;
+  --main-color: #6c7cff;
+  --error-color: #ef4444;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'JetBrains Mono', monospace;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    line-height: 1.6;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    overflow-x: hidden;
+}
+
+/* Фоновый контейнер (нужен для анимаций) */
+#bgContainer {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: -1;
+    background-color: var(--bg-color);
+}
+
+.profile-container {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 40px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Шапка профиля */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    padding-bottom: 25px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+.avatar-circle {
+    width: 80px;
+    height: 80px;
+    background: var(--panel-color);
+    color: var(--text-color);
+    border: 2px solid var(--main-color);
+    box-shadow: 0 0 20px rgba(108, 124, 255, 0.25);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 38px;
+    flex-shrink: 0;
+}
+
+.user-info h1 {
+    color: var(--text-color);
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.user-rank {
+    color: var(--main-color);
+    margin: 5px 0 0 0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Заголовки разделов */
+.section-title {
+    color: var(--main-color);
+    font-size: 1.25rem;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--main-color);
+    padding-left: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+}
+
+/* Сетка карточек статистики */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: var(--panel-color) !important;
+    border: 1.5px solid var(--sub-color);
+    padding: 24px;
+    border-radius: 16px;
+    text-align: left;
+    transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100px;
+}
+
+.stat-card:hover {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border-color: var(--main-color);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 15px rgba(108, 124, 255, 0.1);
+}
+
+.stat-label {
+    color: var(--sub-color);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    color: var(--main-color);
+    font-size: 2.1rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+/* СЕКЦИЯ ТЕПЛОВОЙ КАРТЫ */
+.heatmap-section {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    background: var(--panel-color);
+    border: 1.5px solid var(--sub-color);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 900px) {
+    .heatmap-section {
+        flex-direction: column;
+    }
+}
+
+.heatmap-keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 2.2;
+    user-select: none;
+}
+
+.heatmap-row {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.h-key {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--sub-color);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.h-key:hover {
+    transform: translateY(-3px) scale(1.05);
+    border-color: var(--main-color) !important;
+    box-shadow: 0 0 15px var(--main-color) !important;
+    z-index: 10;
+}
+
+.h-space {
+    width: 280px;
+}
+
+/* Информационная панель клавиши */
+.key-info-panel {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1.5px dashed var(--sub-color);
+    border-radius: 16px;
+    padding: 20px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.key-info-panel h3 {
+    color: var(--main-color);
+    margin: 0 0 15px 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+#key-instruction {
+    color: var(--sub-color);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.key-stat-row {
+    margin: 12px 0;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    padding-bottom: 6px;
+}
+
+.key-stat-row strong {
+    color: var(--main-color);
+    font-weight: 700;
+}
+
+/* СЕКЦИЯ ДОСТИЖЕНИЙ */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.ach-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: var(--panel-color);
+    border: 1.5px solid var(--sub-color);
+    padding: 18px 24px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.ach-card.locked {
+    opacity: 0.3;
+    filter: grayscale(100%);
+}
+
+.ach-card:not(.locked) {
+    border-color: var(--main-color);
+    box-shadow: 0 0 20px rgba(108, 124, 255, 0.15);
+    animation: glowPulse 2s infinite alternate;
+}
+
+.ach-icon {
+    font-size: 2.2rem;
+}
+
+.ach-info h4 {
+    margin: 0 0 5px 0;
+    color: var(--text-color);
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.ach-info p {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 0.8rem;
+}
+
+/* Кнопка возврата */
+.profile-actions {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.res-btn.primary {
+    background: var(--main-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.res-btn.primary:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(108, 124, 255, 0.3);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glowPulse {
+    from { box-shadow: 0 0 15px rgba(108, 124, 255, 0.1); }
+    to { box-shadow: 0 0 25px rgba(108, 124, 255, 0.25); }
+}
+
+.Version {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 4px 12px;
+    font-size: 1.15rem;
+}

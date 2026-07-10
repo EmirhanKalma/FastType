@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация - FAST TYPE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+  <rect width='100' height='100' rx='20' fill='%230a0a0f'/> 
+  <text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' 
+        fill='%235d5dff' font-family='Arial Black, sans-serif' font-weight='900' font-size='70'>
+    F
+  </text>
+</svg>">
+</head>
+<body>
+    <div class="logo-container">
+        <h1 class="logo-top">FAST</h1>
+        <h1 class="logo-bottom">TYPE</h1>
+    </div>
+
+    <form action="" method="">
+        <div class="form">
+            <h1 id="form-title">Регистрация</h1>
+            
+            <div class="inpt">
+                <input 
+                    placeholder="Введите никнейм" 
+                    type="text" 
+                    id="name" 
+                    name="username" 
+                    autocomplete="username" 
+                    required
+                >
+                <p id="incorect"></p>
+                
+       <div class="password-wrapper">
+        <input 
+            placeholder="Введите пароль" 
+            type="password" 
+            id="password" 
+            name="password" 
+            autocomplete="new-password" 
+            required
+        >
+        <span class="password-toggle" id="toggle-pass1">Show</span>
+    </div>
+    <p id="incorect2"></p>
+    
+    <!-- Подтверждение пароля -->
+    <div class="password-wrapper">
+        <input 
+            placeholder="Подтвердите свой пароль" 
+            type="password" 
+            id="passwordagain" 
+            name="password_confirm" 
+            autocomplete="new-password" 
+            required
+        >
+        <span class="password-toggle" id="toggle-pass2">Show</span>
+    </div>
+    <p id="incorect3"></p>
+</div>
+            </div>
+
+            <div class="links-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" id="remember">
+                    <span id="remember-text">Запомнить меня</span>
+                </label>
+            </div>
+
+            <button type="submit" class="btn" id="btn">Зарегистрироваться</button>
+
+            <div class="login-footer">
+                <p>Уже есть аккаунт?</p>
+                <a id="link" href="../SignIn/index.html">Войти</a>
+            </div>
+        </div>
+    </form>
+
+    <script src="./main.js"></script>
+</body>
+</html>

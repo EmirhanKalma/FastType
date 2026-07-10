@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Настройка Сложности</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+  <rect width='100' height='100' rx='20' fill='%230a0a0f'/> 
+  <text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' 
+        fill='%235d5dff' font-family='Arial Black, sans-serif' font-weight='900' font-size='70'>
+    F
+  </text>
+</svg>">
+  </head>
+  <body>
+    <span class="Version">Version:1.0.0</span>
+    <div id="keyboardset" class="keyboardset"></div>
+
+    <h1 class="SettingsKeyColor">Настройка Сложности Тестов</h1>
+
+    <div class="keyboard-settings">
+      <div class="main-settings-container">
+        <div class="btn-group">
+          <button class="btn-easy" id="btn-easy">Easy</button>
+          <span class="btn-tooltip">Регулировака времени: Да . За слово +1 FastPoint</span>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn-normal" id="btn-normal">Normal</button>
+          <span class="btn-tooltip">Регулировака времени: Да . За слово +4 FastPoint</span>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn-medium" id="btn-medium">Medium</button>
+          <span class="btn-tooltip">Регулировака времени: Да . За слово +7 FastPoint</span>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn-hard" id="btn-hard">Hard</button>
+          <span class="btn-tooltip">Регулировака времени: Да . За слово +11 FastPoint</span>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn-expert" id="btn-expert">Expert</button>
+          <span class="btn-tooltip">Регулировака времени: Да. За слово +14 FastPoint</span>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn-master" id="btn-master">Master</button>
+          <span class="btn-tooltip">Регулировака времени: Да. За слово +17 FastPoint</span>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn-extreme" id="btn-extreme">Extreme</button>
+          <span class="btn-tooltip">Регулировака времени: Да. За слово +19 FastPoint</span>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn-insane" id="btn-insane">Insane</button>
+          <span class="btn-tooltip">Регулировака времени: Да. За слово +20 FastPoint</span>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn-nightmare" id="btn-nightmare">Nightmare</button>
+          <span class="btn-tooltip">Регулировака времени: Да . За слово +23 FastPoint</span>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn-ultimate" id="btn-ultimate">Ultimate</button>
+          <span class="btn-tooltip">Регулировака времени: Да. За слово +27 FastPoint</span>
+        </div>
+      </div>
+      
+    </div>
+
+    <h1 class="SettingsKeyColor">Настройка Времени Тестов</h1>
+
+    <div class="keyboard-settings">
+      <div class="main-settings-container1">
+        <span id="spn">Текущий уровень:</span>
+        <span id="spn2"></span>
+        <div class="inpt" id="inpt">
+            <span>Время дающийся на тест:</span>
+        <input min="1" max="120" type="range" name="" id="inptcolor" class="inptcolor">
+        <span id="time" class="time"></span>
+    </div>
+    <button class="btn" id="btn">Установить уровень</button>
+    <form action="">
+        <button id="DeleteAll">Сбросить все настройки</button>
+      </form>
+      </div>
+
+    </div>
+
+        <button 
+    class="menu-btn" 
+    data-type="back" 
+    data-title="Вернуться на главную страницу" 
+    onclick="location.href='../MainTrainingPage/index.html'">
+  </button>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="main.js"></script>
+    <script src="/sync.js"></script>
+  </body>
+</html>

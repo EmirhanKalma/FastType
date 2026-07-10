@@ -1,0 +1,755 @@
+:root {
+  --bg-color: #1e1e20;
+  --main-color: #3b82f6;
+  --caret-color: #3b82f6;
+  --sub-color: #52525b;
+  --text-color: #f4f4f5;
+  --error-color: #ef4444;
+  --result-num-color: #facc15;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: "JetBrains Mono", "Roboto Mono", monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--text-color);
+  padding: 40px 0;
+}
+
+.Version {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 4px 12px;
+    font-size: 1.25rem;
+    font-family: sans-serif;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+}
+
+.Version:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    cursor: default;
+}
+
+.ThemeSet {
+  max-width: 1400px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  border-radius: 16px;
+  gap: 20px;
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.keyboardset {
+  cursor: not-allowed;
+  width: 90%;
+  max-width: 1190px;
+  min-height: 500px;
+  margin: 20px auto 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 30px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  position: relative;
+  padding: 40px;
+}
+
+.ThemeSet button {
+  padding: 20px 46px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid var(--sub-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.ThemeSet button:hover {
+  transform: translateY(-5px);
+  border-color: var(--main-color);
+  color: var(--main-color);
+}
+
+.Theme-NightNeon {
+  --bg-color: #0b0f1a;
+  --text-color: #eaeaff;
+  --panel-color: #161b2e;
+  --icon-color: #6c7cff;
+  --sub-color: #2a2f4a;
+  --main-color: #6c7cff;
+}
+.Theme-TechBlue {
+  --bg-color: #001233;
+  --text-color: #ffffff;
+  --panel-color: #001845;
+  --icon-color: #93c5fd;
+  --sub-color: #002855;
+  --main-color: #00a6fb;
+}
+.Theme-DarkGraphite {
+  --bg-color: #1c1c1c;
+  --text-color: #f5f5f5;
+  --panel-color: #262626;
+  --icon-color: #a1a1aa;
+  --sub-color: #52525b;
+  --main-color: #a1a1aa;
+}
+.Theme-LightMinimal {
+  --bg-color: #f2f2f2;
+  --text-color: #1a1a1a;
+  --panel-color: #ffffff;
+  --icon-color: #2563eb;
+  --sub-color: #a1a1aa;
+  --main-color: #2563eb;
+}
+.Theme-PurpleCyber {
+  --bg-color: #0f051d;
+  --text-color: #ede7ff;
+  --panel-color: #1a0b2e;
+  --icon-color: #bc95ff;
+  --sub-color: #3b1b5e;
+  --main-color: #bc95ff;
+}
+.Theme-GreenCode {
+  --bg-color: #08140e;
+  --text-color: #cfffe1;
+  --panel-color: #0d261a;
+  --icon-color: #4ade80;
+  --sub-color: #144029;
+  --main-color: #4ade80;
+}
+.Theme-SandComfort {
+  --bg-color: #fdf6e3;
+  --text-color: #4a3f35;
+  --panel-color: #eee8d5;
+  --icon-color: #b58900;
+  --sub-color: #ddd6c1;
+  --main-color: #b58900;
+}
+.Theme-RedAccent {
+  --bg-color: #1a0505;
+  --text-color: #ffffff;
+  --panel-color: #2d0a0a;
+  --icon-color: #ef4444;
+  --sub-color: #4a1010;
+  --main-color: #ef4444;
+}
+.Theme-ColdBlueGray {
+  --bg-color: #0f172a;
+  --text-color: #e8ecf1;
+  --panel-color: #1e293b;
+  --icon-color: #38bdf8;
+  --sub-color: #334155;
+  --main-color: #38bdf8;
+}
+.Theme-BlackPremium {
+  --bg-color: #000000;
+  --text-color: #d4af37;
+  --panel-color: #111111;
+  --icon-color: #facc15;
+  --sub-color: #1a1a1a;
+  --main-color: #facc15;
+}
+.Theme-Oceanic {
+  --bg-color: #001b2e;
+  --text-color: #d1f2ff;
+  --panel-color: #00253e;
+  --icon-color: #00d4ff;
+  --sub-color: #163a5f;
+  --main-color: #00d4ff;
+}
+.Theme-DeepForest {
+  --bg-color: #0a1a0a;
+  --text-color: #e0ffe0;
+  --panel-color: #122612;
+  --icon-color: #2ecc71;
+  --sub-color: #1b331b;
+  --main-color: #2ecc71;
+}
+.Theme-Midnight {
+  --bg-color: #050505;
+  --text-color: #f0f0f0;
+  --panel-color: #111111;
+  --icon-color: #ffffff;
+  --sub-color: #222222;
+  --main-color: #ffffff;
+}
+.Theme-Sakura {
+  --bg-color: #2d1b24;
+  --text-color: #ffe0ed;
+  --panel-color: #3d2631;
+  --icon-color: #ff85a1;
+  --sub-color: #5e3a4b;
+  --main-color: #ff85a1;
+}
+.Theme-Solarized {
+  --bg-color: #002b36;
+  --text-color: #839496;
+  --panel-color: #073642;
+  --icon-color: #268bd2;
+  --sub-color: #586e75;
+  --main-color: #268bd2;
+}
+.Theme-Nord {
+  --bg-color: #2e3440;
+  --text-color: #eceff4;
+  --panel-color: #3b4252;
+  --icon-color: #88c0d0;
+  --sub-color: #4c566a;
+  --main-color: #88c0d0;
+}
+.Theme-Dracula {
+  --bg-color: #282a36;
+  --text-color: #f8f8f2;
+  --panel-color: #44475a;
+  --icon-color: #bd93f9;
+  --sub-color: #6272a4;
+  --main-color: #bd93f9;
+}
+.Theme-Monokai {
+  --bg-color: #272822;
+  --text-color: #f8f8f2;
+  --panel-color: #3e3d32;
+  --icon-color: #a6e22e;
+  --sub-color: #75715e;
+  --main-color: #a6e22e;
+}
+.Theme-Cyberpunk {
+  --bg-color: #00040d;
+  --text-color: #00ff9f;
+  --panel-color: #001a1a;
+  --icon-color: #f5ed00;
+  --sub-color: #003b46;
+  --main-color: #f5ed00;
+}
+.Theme-Vaporwave {
+  --bg-color: #2d0a4e;
+  --text-color: #ff71ce;
+  --panel-color: #3d1266;
+  --icon-color: #01cdfe;
+  --sub-color: #4e148c;
+  --main-color: #01cdfe;
+}
+.Theme-Retro {
+  --bg-color: #322d29;
+  --text-color: #d6d5c9;
+  --panel-color: #3e3935;
+  --icon-color: #a22c29;
+  --sub-color: #625c58;
+  --main-color: #a22c29;
+}
+.Theme-Paper {
+  --bg-color: #eeeeee;
+  --text-color: #444444;
+  --panel-color: #e0e0e0;
+  --icon-color: #222222;
+  --sub-color: #cccccc;
+  --main-color: #222222;
+}
+.Theme-Copper {
+  --bg-color: #1b1212;
+  --text-color: #e2b49a;
+  --panel-color: #261a1a;
+  --icon-color: #b87333;
+  --sub-color: #3d2b2b;
+  --main-color: #b87333;
+}
+.Theme-Lavender {
+  --bg-color: #1a1a2e;
+  --text-color: #e6e6fa;
+  --panel-color: #24244a;
+  --icon-color: #9370db;
+  --sub-color: #30305a;
+  --main-color: #9370db;
+}
+.Theme-Blood {
+  --bg-color: #110000;
+  --text-color: #ff0000;
+  --panel-color: #220000;
+  --icon-color: #880000;
+  --sub-color: #440000;
+  --main-color: #880000;
+}
+.Theme-Lime {
+  --bg-color: #1a1f10;
+  --text-color: #e0f0d0;
+  --panel-color: #232a16;
+  --icon-color: #a4c639;
+  --sub-color: #303b1e;
+  --main-color: #a4c639;
+}
+.Theme-Coffee {
+  --bg-color: #2b1700;
+  --text-color: #f5f5dc;
+  --panel-color: #3d2100;
+  --icon-color: #6f4e37;
+  --sub-color: #4a3000;
+  --main-color: #6f4e37;
+}
+.Theme-Ice {
+  --bg-color: #e0f7fa;
+  --text-color: #006064;
+  --panel-color: #b2ebf2;
+  --icon-color: #00bcd4;
+  --sub-color: #80deea;
+  --main-color: #00bcd4;
+}
+.Theme-Slate {
+  --bg-color: #0f172a;
+  --text-color: #f1f5f9;
+  --panel-color: #1e293b;
+  --icon-color: #94a3b8;
+  --sub-color: #334155;
+  --main-color: #94a3b8;
+}
+.Theme-Bumblebee {
+  --bg-color: #222222;
+  --text-color: #ffffff;
+  --panel-color: #2d2d2d;
+  --icon-color: #facc15;
+  --sub-color: #3d3d3d;
+  --main-color: #facc15;
+}
+.Theme-Marshmallow {
+  --bg-color: #f8bbd0;
+  --text-color: #880e4f;
+  --panel-color: #fce4ec;
+  --icon-color: #c2185b;
+  --sub-color: #f48fb1;
+  --main-color: #c2185b;
+}
+.Theme-Toxic {
+  --bg-color: #000000;
+  --text-color: #39ff14;
+  --panel-color: #0d0d0d;
+  --icon-color: #32cd32;
+  --sub-color: #1a1a1a;
+  --main-color: #32cd32;
+}
+.Theme-Blueprint {
+  --bg-color: #1a3a6c;
+  --text-color: #ffffff;
+  --panel-color: #204682;
+  --icon-color: #8eaadb;
+  --sub-color: #2a4a7c;
+  --main-color: #8eaadb;
+}
+.Theme-Carbon {
+  --bg-color: #161616;
+  --text-color: #f4f4f4;
+  --panel-color: #222222;
+  --icon-color: #393939;
+  --sub-color: #262626;
+  --main-color: #393939;
+}
+.Theme-Sunset {
+  --bg-color: #2d142c;
+  --text-color: #ee4540;
+  --panel-color: #3e1c3d;
+  --icon-color: #c72c41;
+  --sub-color: #510a32;
+  --main-color: #c72c41;
+}
+.Theme-Matrix {
+  --bg-color: #000000;
+  --text-color: #00ff41;
+  --panel-color: #001500;
+  --icon-color: #008f11;
+  --sub-color: #003b00;
+  --main-color: #008f11;
+}
+.Theme-Ghost {
+  --bg-color: #f5f5f5;
+  --text-color: #333333;
+  --panel-color: #eeeeee;
+  --icon-color: #9e9e9e;
+  --sub-color: #e0e0e0;
+  --main-color: #9e9e9e;
+}
+.Theme-Mars {
+  --bg-color: #451804;
+  --text-color: #ff9d6f;
+  --panel-color: #5a2005;
+  --icon-color: #c1440e;
+  --sub-color: #692a08;
+  --main-color: #c1440e;
+}
+.Theme-NeonPink {
+  --bg-color: #1a001a;
+  --text-color: #ffffff;
+  --panel-color: #2a002a;
+  --icon-color: #ff00ff;
+  --sub-color: #4d004d;
+  --main-color: #ff00ff;
+}
+.Theme-GoldenRed {
+  --bg-color: #4a0000;
+  --text-color: #ffd700;
+  --panel-color: #5d0000;
+  --icon-color: #ffd700;
+  --sub-color: #7a0000;
+  --main-color: #ffd700;
+}
+.Theme-DeepSea {
+  --bg-color: #011627;
+  --text-color: #d6deeb;
+  --panel-color: #0b2942;
+  --icon-color: #82aaff;
+  --sub-color: #1d3b53;
+  --main-color: #82aaff;
+}
+.Theme-Emerald {
+  --bg-color: #002b1b;
+  --text-color: #d1fae5;
+  --panel-color: #003d27;
+  --icon-color: #10b981;
+  --sub-color: #064e3b;
+  --main-color: #10b981;
+}
+.Theme-Synthwave {
+  --bg-color: #241b2f;
+  --text-color: #ff7edb;
+  --panel-color: #2f233d;
+  --icon-color: #36f9f6;
+  --sub-color: #4d2d52;
+  --main-color: #36f9f6;
+}
+.Theme-Terra {
+  --bg-color: #3d2b1f;
+  --text-color: #f2e9e4;
+  --panel-color: #4a3728;
+  --icon-color: #d4a373;
+  --sub-color: #5a4534;
+  --main-color: #d4a373;
+}
+.Theme-Moonlight {
+  --bg-color: #1e2030;
+  --text-color: #cad3f5;
+  --panel-color: #24273a;
+  --icon-color: #8aadf4;
+  --sub-color: #363a4f;
+  --main-color: #8aadf4;
+}
+.Theme-RosePine {
+  --bg-color: #191724;
+  --text-color: #e0def4;
+  --panel-color: #1f1d2e;
+  --icon-color: #ebbcba;
+  --sub-color: #26233a;
+  --main-color: #ebbcba;
+}
+.Theme-Material {
+  --bg-color: #263238;
+  --text-color: #eceff1;
+  --panel-color: #2e3d44;
+  --icon-color: #80cbc4;
+  --sub-color: #37474f;
+  --main-color: #80cbc4;
+}
+.Theme-Abyss {
+  --bg-color: #000c18;
+  --text-color: #6688aa;
+  --panel-color: #001529;
+  --icon-color: #114477;
+  --sub-color: #002244;
+  --main-color: #114477;
+}
+.Theme-Kuro {
+  --bg-color: #121212;
+  --text-color: #888888;
+  --panel-color: #1a1a1a;
+  --icon-color: #444444;
+  --sub-color: #222222;
+  --main-color: #444444;
+}
+.Theme-Cream {
+  --bg-color: #fffdd0;
+  --text-color: #5d4037;
+  --panel-color: #f3e5ab;
+  --icon-color: #8d6e63;
+  --sub-color: #e6dfb1;
+  --main-color: #8d6e63;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.keyboard {
+  scale: 0.7;
+  cursor: not-allowed;
+}
+.first-row,
+.second-row,
+.third-row {
+  cursor: not-allowed;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.first-row div,
+.second-row div,
+.third-row div {
+  cursor: not-allowed;
+  width: 45px;
+  height: 45px;
+  border-radius: 6px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  user-select: none;
+  transition: all 0.1s ease;
+}
+
+#space {
+  width: 300px !important;
+  height: 45px;
+  margin: 10px auto;
+  border-radius: 6px;
+  cursor: not-allowed;
+}
+
+.settings {
+  cursor: not-allowed;
+  width: 60px;
+  height: 380px;
+  border-radius: 16px;
+  background: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  scale: 0.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
+  align-items: center;
+  position: absolute;
+  left: 20px;
+  top: 30%;
+  transform: translateY(-50%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.top-icons {
+  cursor: not-allowed;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  position: relative;
+  right: 15px;
+}
+
+.menu-btn {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border: none;
+  background-color: rgb(0, 255, 26); 
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+#settingsBtn{
+  position: absolute;
+  top: 85%;
+  left: 20%;
+}
+
+
+[data-type="user"] {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
+}
+
+
+[data-type="stats"] {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='20' x2='18' y2='10'/%3E%3Cline x1='12' y1='20' x2='12' y2='4'/%3E%3Cline x1='6' y1='20' x2='6' y2='14'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='20' x2='18' y2='10'/%3E%3Cline x1='12' y1='20' x2='12' y2='4'/%3E%3Cline x1='6' y1='20' x2='6' y2='14'/%3E%3C/svg%3E");
+}
+
+
+[data-type="trophy"] {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9H4.5a2.5 2.5 0 0 1 0-5H6'/%3E%3Cpath d='M18 9h1.5a2.5 2.5 0 0 0 0-5H18'/%3E%3Cpath d='M4 22h16'/%3E%3Cpath d='M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22'/%3E%3Cpath d='M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22'/%3E%3Cpath d='M18 2H6v7a6 6 0 0 0 12 0V2Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9H4.5a2.5 2.5 0 0 1 0-5H6'/%3E%3Cpath d='M18 9h1.5a2.5 2.5 0 0 0 0-5H18'/%3E%3Cpath d='M4 22h16'/%3E%3Cpath d='M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22'/%3E%3Cpath d='M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22'/%3E%3Cpath d='M18 2H6v7a6 6 0 0 0 12 0V2Z'/%3E%3C/svg%3E");
+}
+
+
+[data-type="settings"] {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z'/%3E%3C/svg%3E");
+}
+
+.logo-container {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+  scale: 0.5;
+}
+
+.logo-container h1 {
+  margin: 0;
+  line-height: 1;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.logo-top {
+  font-size: 37px;
+  color: #f4f4f5;
+}
+
+.logo-bottom {
+  font-size: 37px;
+  color: #3b82f6;
+  text-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+.words-wrapper {
+  scale: 0.5;
+  position: absolute;
+  top: 30%;
+  margin: 0 auto;
+  gap: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  position: relative;
+  font-size: 32px;
+  line-height: 1.5em;
+  height: 144px;
+  color: var(--sub-color);
+  max-width: 900px;
+  overflow: hidden;
+  text-align: start;
+}
+
+
+.SettingsKeyColor {
+  width: 100%;
+  max-width: 1190px;
+  margin: 50px auto 20px;
+  color: var(--sub-color);
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.menu-btn {
+  position: absolute;
+  top: 30px;
+  left: 35%;
+  width: 45px;
+  height: 45px;
+  background-color: var(--main-color);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.4s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-btn[data-type="back"] {
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 12H5'/%3E%3Cpolyline points='12 19 5 12 12 5'/%3E%3C/svg%3E") no-repeat center / contain;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 12H5'/%3E%3Cpolyline points='12 19 5 12 12 5'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+.menu-btn:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+.menu-btn::after {
+  content: "Вернуться назад";
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  transform: translateY(-50%);
+  background: var(--panel-color);
+  color: var(--main-color);
+  padding: 8px 15px;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  white-space: nowrap;
+  border-radius: 8px;
+  border: 1px solid var(--sub-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.menu-btn:hover::after {
+  opacity: 1;
+  visibility: visible;
+  left: 55px;
+}
+
+.menu-btn:active {
+  transform: scale(0.9);
+}

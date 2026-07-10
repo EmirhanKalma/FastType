@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Профиль и Аналитика - FAST TYPE</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+  <rect width='100' height='100' rx='20' fill='%230a0a0f'/> 
+  <text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' 
+        fill='%235d5dff' font-family='Arial Black, sans-serif' font-weight='900' font-size='70'>
+    F
+  </text>
+</svg>">
+  </head>
+  <body>
+    <div id="bgContainer"></div>
+    <span class="Version">Version:1.1.0</span>
+    
+    <div class="profile-container">
+      <div class="profile-header">
+        <div class="avatar-circle">👤</div>
+        <div class="user-info">
+          <h1 id="user-name">Загрузка...</h1>
+        </div>
+      </div>
+
+      <!-- Основная статистика -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-label">Всего тестов</span>
+          <span class="stat-value" id="profile-tests">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Средний WPM</span>
+          <span class="stat-value" id="profile-avg-wpm">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Лучший WPM</span>
+          <span class="stat-value" id="profile-best-wpm">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Ср. Точность</span>
+          <span class="stat-value" id="profile-avg-acc">0%</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Общий FP</span>
+          <span class="stat-value" id="profile-fp">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Ошибок сделано</span>
+          <span class="stat-value" id="profile-total-mistakes">0</span>
+        </div>
+      </div>
+
+      <!-- НОВОЕ: ТЕПЛОВАЯ КАРТА КЛАВИАТУРЫ -->
+      <h2 class="section-title">⌨️ Тепловая активность клавиш</h2>
+      <div class="heatmap-section">
+        <div class="heatmap-keyboard" id="heatmap-keyboard">
+          <!-- Ряд 1 -->
+          <div class="heatmap-row">
+            <div class="h-key" data-key="Q">Q</div>
+            <div class="h-key" data-key="W">W</div>
+            <div class="h-key" data-key="E">E</div>
+            <div class="h-key" data-key="R">R</div>
+            <div class="h-key" data-key="T">T</div>
+            <div class="h-key" data-key="Y">Y</div>
+            <div class="h-key" data-key="U">U</div>
+            <div class="h-key" data-key="I">I</div>
+            <div class="h-key" data-key="O">O</div>
+            <div class="h-key" data-key="P">P</div>
+          </div>
+          <!-- Ряд 2 -->
+          <div class="heatmap-row">
+            <div class="h-key" data-key="A">A</div>
+            <div class="h-key" data-key="S">S</div>
+            <div class="h-key" data-key="D">D</div>
+            <div class="h-key" data-key="F">F</div>
+            <div class="h-key" data-key="G">G</div>
+            <div class="h-key" data-key="H">H</div>
+            <div class="h-key" data-key="J">J</div>
+            <div class="h-key" data-key="K">K</div>
+            <div class="h-key" data-key="L">L</div>
+          </div>
+          <!-- Ряд 3 -->
+          <div class="heatmap-row">
+            <div class="h-key" data-key="Z">Z</div>
+            <div class="h-key" data-key="X">X</div>
+            <div class="h-key" data-key="C">C</div>
+            <div class="h-key" data-key="V">V</div>
+            <div class="h-key" data-key="B">B</div>
+            <div class="h-key" data-key="N">N</div>
+            <div class="h-key" data-key="M">M</div>
+          </div>
+          <!-- Пробел -->
+          <div class="heatmap-row">
+            <div class="h-key h-space" data-key="SPACE">SPACE</div>
+          </div>
+        </div>
+
+        <!-- Панель деталей клавиши -->
+        <div class="key-info-panel" id="key-info-panel">
+          <h3>Статистика клавиши</h3>
+          <p id="key-instruction">Наведи курсор на клавишу для анализа</p>
+          <div id="key-stats-data" style="display: none;">
+            <div class="key-stat-row">Клавиша: <strong id="stat-key-name">-</strong></div>
+            <div class="key-stat-row">Всего нажатий: <strong id="stat-key-presses">0</strong></div>
+            <div class="key-stat-row">Ошибок на ней: <strong id="stat-key-errors">0</strong></div>
+            <div class="key-stat-row">Точность: <strong id="stat-key-accuracy">100%</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- НОВОЕ: ДОСТИЖЕНИЯ -->
+      <h2 class="section-title">🏆 Достижения игрока</h2>
+      <div class="achievements-grid" id="achievements-grid">
+        <div class="ach-card locked" id="ach-first">
+          <div class="ach-icon">🎯</div>
+          <div class="ach-info">
+            <h4>Первый полет</h4>
+            <p>Заверши свой самый первый тест</p>
+          </div>
+        </div>
+        <div class="ach-card locked" id="ach-speed">
+          <div class="ach-icon">⚡</div>
+          <div class="ach-info">
+            <h4>Скоростной Демон</h4>
+            <p>Набери скорость более 70 WPM</p>
+          </div>
+        </div>
+        <div class="ach-card locked" id="ach-sniper">
+          <div class="ach-icon">👁️</div>
+          <div class="ach-info">
+            <h4>Снайпер</h4>
+            <p>Заверши тест с точностью 100%</p>
+          </div>
+        </div>
+        <div class="ach-card locked" id="ach-rich">
+          <div class="ach-icon">💎</div>
+          <div class="ach-info">
+            <h4>Олигарх FP</h4>
+            <p>Накопи больше 200 FastPoints</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-actions">
+        <button class="res-btn primary" onclick="location.href = '/MainTrainingPage/index.html'">
+          На главную
+        </button>
+      </div>
+    </div>
+
+    <!-- Загружаем бэк-синхронизатор и стили, затем строим аналитику -->
+    <script src="/sync.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

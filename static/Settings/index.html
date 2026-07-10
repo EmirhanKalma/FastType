@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки аккаунта - FAST TYPE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="bgContainer"></div>
+    <span class="Version">Version:1.1.0</span>
+
+    <div class="settings-container">
+        <h1 class="settings-title">⚙️ Настройки аккаунта</h1>
+
+        <!-- Карточка информации -->
+        <div class="settings-card info-card">
+            <h2>Информация</h2>
+            <div class="info-row">Имя аккаунта: <strong id="info-username">-</strong></div>
+            <div class="info-row">Дата регистрации: <strong id="info-date">-</strong></div>
+        </div>
+
+        <!-- Смена никнейма -->
+        <div class="settings-card">
+            <h2>Сменить никнейм</h2>
+            <div class="input-group">
+                <input type="text" id="new-username-input" placeholder="Новый никнейм">
+                <button class="settings-btn" id="save-username-btn">Обновить ник</button>
+            </div>
+            <p class="status-msg" id="username-status"></p>
+        </div>
+
+        <!-- Смена пароля -->
+        <div class="settings-card">
+            <h2>Изменить пароль</h2>
+            <div class="input-group">
+                <input type="password" id="new-password-input" placeholder="Новый пароль">
+                <button class="settings-btn" id="save-password-btn">Обновить пароль</button>
+            </div>
+            <p class="status-msg" id="password-status"></p>
+        </div>
+
+        <!-- Опасная зона (Сброс и Удаление) -->
+        <div class="settings-card danger-zone">
+            <h2>⚠️ Опасная зона</h2>
+            <p class="danger-warning">Внимание: данные действия необратимы!</p>
+            <div class="danger-actions">
+                <button class="danger-btn" id="reset-stats-btn">Сбросить статистику</button>
+                <button class="danger-btn delete-btn" id="delete-acc-btn">Удалить аккаунт</button>
+            </div>
+            <p class="status-msg" id="danger-status"></p>
+        </div>
+
+        <div class="actions">
+            <button class="back-btn" onclick="location.href='/MainTrainingPage/index.html'">На главную</button>
+        </div>
+    </div>
+
+    <!-- Загружаем темы, фоны и логику -->
+    <script src="/sync.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
