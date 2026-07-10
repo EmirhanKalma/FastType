@@ -221,7 +221,6 @@ span.incorrect {
 #AccontSettingsBtn{
   display: flex;
   justify-content: center;
-  background-color: red;
   margin-top: 15%;
 }
 .menu-item::before {
