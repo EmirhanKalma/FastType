@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель управления администратора - FAST TYPE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="bgContainer"></div>
+    <span class="Version">Version:1.1.0</span>
+
+    <div class="admin-container">
+        <h1 class="admin-title">⚡ СИСТЕМА УПРАВЛЕНИЯ FASTTYPE</h1>
+
+        <!-- БЛОК ОБЩИХ МЕТРИК СЕРВЕРА -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <span class="m-label">Пользователей в базе</span>
+                <span class="m-value" id="metric-users">0</span>
+            </div>
+            <div class="metric-card">
+                <span class="m-label">Сыграно тестов (Всего)</span>
+                <span class="m-value" id="metric-tests">0</span>
+            </div>
+            <div class="metric-card">
+                <span class="m-label">Очков сгенерировано</span>
+                <span class="m-value" id="metric-fp">0</span>
+            </div>
+            <div class="metric-card">
+                <span class="m-label">Ошибок сделано</span>
+                <span class="m-value" id="metric-mistakes">0</span>
+            </div>
+        </div>
+
+        <!-- ТАБЛИЦА С ИГРОКАМИ И УПРАВЛЕНИЕМ -->
+        <div class="admin-card">
+            <h2>👥 Управление пользователями базы данных</h2>
+            <div class="table-wrapper">
+                <table class="users-table">
+                    <thead>
+                        <tr>
+                            <th>Пользователь</th>
+                            <th>Регистрация</th>
+                            <th>Рекорд WPM</th>
+                            <th>Баланс FP</th>
+                            <th>Тестов сыграно</th>
+                            <th>Активная тема</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-table-body">
+                        <!-- Заполняется динамически через JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button class="back-btn" onclick="location.href='/MainTrainingPage/index.html'">На главную</button>
+        </div>
+    </div>
+
+    <!-- Подключаем стили синхронизации и логику -->
+    <script src="/sync.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
