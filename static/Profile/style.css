@@ -23,7 +23,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Фоновый контейнер (нужен для анимаций) */
+
 #bgContainer {
     position: fixed;
     top: 0; left: 0;
@@ -39,7 +39,7 @@ body {
     animation: fadeIn 0.4s ease-out;
 }
 
-/* Шапка профиля */
+
 .profile-header {
     display: flex;
     align-items: center;
@@ -81,7 +81,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* Заголовки разделов */
+
 .section-title {
     color: var(--main-color);
     font-size: 1.25rem;
@@ -94,7 +94,7 @@ body {
     font-weight: 800;
 }
 
-/* Сетка карточек статистики */
+
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -137,7 +137,7 @@ body {
     line-height: 1;
 }
 
-/* СЕКЦИЯ ТЕПЛОВОЙ КАРТЫ */
+
 .heatmap-section {
     display: flex;
     flex-direction: row;
@@ -196,7 +196,7 @@ body {
     width: 280px;
 }
 
-/* Информационная панель клавиши */
+
 .key-info-panel {
     flex: 1;
     background: rgba(0, 0, 0, 0.2);
@@ -239,7 +239,7 @@ body {
     font-weight: 700;
 }
 
-/* СЕКЦИЯ ДОСТИЖЕНИЙ */
+
 .achievements-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -285,7 +285,7 @@ body {
     font-size: 0.8rem;
 }
 
-/* Кнопка возврата */
+
 .profile-actions {
     margin-top: 50px;
     display: flex;
@@ -313,7 +313,7 @@ body {
     box-shadow: 0 12px 25px rgba(108, 124, 255, 0.3);
 }
 
-/* Анимации */
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
