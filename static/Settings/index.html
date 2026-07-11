@@ -13,14 +13,14 @@
     <div class="settings-container">
         <h1 class="settings-title">⚙️ Настройки аккаунта</h1>
 
-        <!-- Карточка информации -->
+
         <div class="settings-card info-card">
             <h2>Информация</h2>
             <div class="info-row">Имя аккаунта: <strong id="info-username">-</strong></div>
             <div class="info-row">Дата регистрации: <strong id="info-date">-</strong></div>
         </div>
 
-        <!-- Смена никнейма -->
+
         <div class="settings-card">
             <h2>Сменить никнейм</h2>
             <div class="input-group">
@@ -30,7 +30,7 @@
             <p class="status-msg" id="username-status"></p>
         </div>
 
-        <!-- Смена пароля -->
+
         <div class="settings-card">
             <h2>Изменить пароль</h2>
             <div class="input-group">
@@ -40,7 +40,7 @@
             <p class="status-msg" id="password-status"></p>
         </div>
 
-        <!-- Опасная зона (Сброс и Удаление) -->
+
         <div class="settings-card danger-zone">
             <h2>⚠️ Опасная зона</h2>
             <p class="danger-warning">Внимание: данные действия необратимы!</p>
@@ -51,12 +51,16 @@
             <p class="status-msg" id="danger-status"></p>
         </div>
 
-        <div class="actions">
-            <button class="back-btn" onclick="location.href='/MainTrainingPage/index.html'">На главную</button>
-        </div>
-    </div>
 
-    <!-- Загружаем темы, фоны и логику -->
+    </div>
+            <button 
+    class="menu-btn" 
+    data-type="back" 
+    data-title="Вернуться на главную страницу" 
+    onclick="location.href='../MainTrainingPage/index.html'">
+  </button>
+    
+
     <script src="/sync.js"></script>
     <script src="main.js"></script>
 </body>
