@@ -2838,13 +2838,14 @@ let resetGame = async (newWords = true) => {
       try {
         const response = await fetch('/api/get_random_text');
         const data = await response.json();
-        // Берем текст целиком и разбиваем его на массив слов по пробелам
         currentWords = data.text.trim().split(" ");
       } catch (e) {
         currentWords = generateDictionaryWords(40);
       }
     } else {
       currentWords = generateDictionaryWords(40);
+      const aitxtinfo = document.getElementById("aitxt-info")
+      aitxtinfo.textContent = "Ошибка"
     }
   }
   
@@ -3362,9 +3363,7 @@ function goTo(path) {
     window.open(path, '_blank');
 }
 
-// Функция отправки данных на сервер
 async function saveResultsToServer(wpm, acc, fastPoints) {
-    // Берем имя пользователя, под которым он зашел
     const username = localStorage.getItem('username'); 
     
     if (!username) {
@@ -3377,7 +3376,6 @@ async function saveResultsToServer(wpm, acc, fastPoints) {
         wpm: wpm,
         acc: acc,
         fastPoints: fastPoints
-        // Сюда можно добавить выбранную тему, уровень сложности и т.д.
     };
 
     try {
@@ -3395,16 +3393,12 @@ async function saveResultsToServer(wpm, acc, fastPoints) {
     }
 }
 
-// Вызови эту функцию в том месте твоего кода, где тест заканчивается
-// saveResultsToServer(120, 98, 15);
 
-// Функция записи статистики конкретной клавиши
-// Функция записи статистики конкретной клавиши
 function recordKeyStroke(char, isCorrect) {
     if (!char || char.length !== 1) return;
     const cleanChar = char.toUpperCase();
     
-    // Разрешаем буквы, цифры, пробел и знаки препинания
+
     if (!/^[A-ZА-ЯЁ0-9 .,!?'"()-]$/.test(cleanChar)) return; 
     
     const keyName = cleanChar === " " ? "SPACE" : cleanChar;
