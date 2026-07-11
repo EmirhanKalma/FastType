@@ -1,4 +1,4 @@
-/* static/Settings/style.css */
+
 
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
 
@@ -57,7 +57,7 @@ body {
     padding-left: 12px;
 }
 
-/* Группа ввода */
+
 .input-group {
     display: flex;
     gap: 15px;
@@ -80,7 +80,7 @@ input:focus {
     border-color: var(--main-color);
 }
 
-/* Кнопки настроек */
+
 .settings-btn {
     background: var(--main-color);
     color: var(--bg-color);
@@ -97,7 +97,7 @@ input:focus {
     transform: translateY(-1px);
 }
 
-/* Опасная зона */
+
 .danger-zone {
     border-color: var(--error-color) !important;
 }
@@ -144,7 +144,7 @@ input:focus {
     background: #d93838;
 }
 
-/* Кнопка назад */
+
 .back-btn {
     background: transparent;
     border: 2px solid var(--sub-color);
@@ -197,4 +197,62 @@ input:focus {
     color: rgba(255, 255, 255, 0.7);
     padding: 4px 12px;
     font-size: 1.15rem;
+}
+.menu-btn {
+  position: absolute;
+  top: 30px;
+  left: 35%;
+  width: 45px;
+  height: 45px;
+  background-color: var(--main-color);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.4s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-btn[data-type="back"] {
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 12H5'/%3E%3Cpolyline points='12 19 5 12 12 5'/%3E%3C/svg%3E") no-repeat center / contain;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 12H5'/%3E%3Cpolyline points='12 19 5 12 12 5'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+.menu-btn:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+.menu-btn::after {
+  content: "Вернуться назад";
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  transform: translateY(-50%);
+  background: var(--panel-color);
+  color: var(--main-color);
+  padding: 8px 15px;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  white-space: nowrap;
+  border-radius: 8px;
+  border: 1px solid var(--sub-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.menu-btn:hover::after {
+  opacity: 1;
+  visibility: visible;
+  left: 55px;
+}
+
+.menu-btn:active {
+  transform: scale(0.9);
 }
