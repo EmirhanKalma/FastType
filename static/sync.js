@@ -13,7 +13,7 @@ const themesList = {
   BlackPremium: { bg: "#000000", text: "#d4af37", panel: "#111111", sub: "#1a1a1a", main: "#facc15" },
   Oceanic: { bg: "#001b2e", text: "#d1f2ff", panel: "#00253e", sub: "#163a5f", main: "#00d4ff" },
   DeepForest: { bg: "#0a1a0a", text: "#e0ffe0", panel: "#122612", sub: "#1b331b", main: "#2ecc71" },
-  Midnight: { bg: "#050505", text: "#f0f0f0", panel: "#111111", sub: "#222222", main: "#ffffff" },
+  Midnight: { bg: "#050505", text: "#817d7d", panel: "#111111", sub: "#222222", main: "#ffffff" },
   Sakura: { bg: "#2d1b24", text: "#ffe0ed", panel: "#3d2631", sub: "#5e3a4b", main: "#ff85a1" },
   Solarized: { bg: "#002b36", text: "#839496", panel: "#073642", sub: "#586e75", main: "#268bd2" },
   Nord: { bg: "#2e3440", text: "#eceff4", panel: "#3b4252", sub: "#4c566a", main: "#88c0d0" },
