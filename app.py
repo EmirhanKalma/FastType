@@ -11,7 +11,13 @@ from fastapi import FastAPI, Request
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
-from transformers import pipeline
+
+try:
+    from transformers import pipeline
+    generator = pipeline("text-generation", model="gpt2")
+except Exception as e:
+    print(f"AI Error: {e}")
+    generator = None
 
 mimetypes.init()
 mimetypes.add_type("text/css", ".css")
@@ -27,7 +33,6 @@ app.add_middleware(
 )
 
 DB_FILE = "data.json"
-generator = pipeline("text-generation", model="gpt2")
 
 def load_data():
     if not os.path.exists(DB_FILE):
@@ -145,44 +150,29 @@ def get_user_stats(username: str):
 @app.get("/api/get_random_text")
 def get_random_text():
     prompts = [
-    # 1. Экономический / Технологический вектор
-    "The rapid development of renewable energy technologies has fundamentally transformed the global economy. Experts note that",
-    
-    # 2. Социальный контекст
-    "In recent years, technology has significantly altered how we process information and communicate. This shift is evident when",
-    
-    # 3. Бизнес / Психология
-    "A fundamental aspect of effective problem-solving is the ability to adapt to changing environments. For example,",
-    
-    # 4. Наука / Футурология
-    "When considering the future of space exploration, researchers must account for several major challenges, including",
-    
-    # 5. История / Медицина
-    "One of the most important discoveries in modern science occurred when researchers finally realized that",
-    
-    # 6. Когнитивистика / Поведение
-    "Human behavior is often influenced by underlying cognitive biases. Psychologists explain this phenomenon by demonstrating how",
-    
-    # 7. Астрономия / Природа
-    "The universe is vast and largely unexplored. However, recent observations from advanced telescopes strongly suggest that",
-    
-    # 8. Индустрия ИИ
-    "Artificial intelligence has become deeply integrated into everyday industrial applications. As a result, software developers are now focusing on",
-    
-    # 9. Образование / Нейробиология
-    "Learning a new skill requires consistent practice and targeted feedback. Recent studies in neuroplasticity show that",
-    
-    # 10. Экология / Океанология
-    "Deep in the ocean, we find complex ecosystems that thrive in extreme conditions. Marine biologists have recently discovered that"
+        "The rapid development of",
+        "In recent years technology",
+        "A fundamental aspect of",
+        "When considering the future",
+        "One of the most important",
+        "Human behavior is often",
+        "The universe is vast and",
+        "Artificial intelligence has",
+        "Learning a new skill requires",
+        "Deep in the ocean we find"
     ]
     prompt = random.choice(prompts)
-    try:
-        result = generator(prompt, max_new_tokens=100, do_sample=True, temperature=1.1, top_k=40, top_p=0.9)
-        gen_text = result[0]["generated_text"]
-        clean_text = format_generated_text(gen_text)
-        return {"text": clean_text}
-    except Exception:
-        return {"text": "Practice makes perfect. Keep typing to improve your typing speed and accuracy. Success is not final, failure is not fatal: it is the courage to continue that counts."}
+    
+    if generator:
+        try:
+            result = generator(prompt, max_new_tokens=100, do_sample=True, temperature=0.8, top_k=40, top_p=0.9)
+            gen_text = result[0]["generated_text"]
+            clean_text = format_generated_text(gen_text)
+            return {"text": clean_text}
+        except Exception as e:
+            print(e)
+            
+    
      
 @app.get("/api/leaderboard")
 def get_leaderboard():
@@ -344,9 +334,7 @@ if BOT_TOKEN and ":" in BOT_TOKEN:
     try:
         bot = telebot.TeleBot(BOT_TOKEN)
     except Exception as e:
-        print(f"Error: {e}")
-else:
-    print("No bot token.")
+        print(e)
 
 if bot:
     @bot.message_handler(commands=['start'])
@@ -359,6 +347,16 @@ if bot:
         )
         bot.send_message(message.chat.id, welcome_text, parse_mode="Markdown")
 
+    @bot.message_handler(commands=['help'])
+    def send_help(message):
+        welcome_text = (
+            " *Вот список комманд:*\n\n"
+            "🔹 `/start` — начать работу бота\n"
+            "🔹 `/reg [логин] [пароль]` — создать аккаунт.\n"
+            "🔹 `/sign [логин] [пароль]` — войти и посмотреть статистику."
+        )
+        bot.send_message(message.chat.id, welcome_text, parse_mode="Markdown")
+        
     @bot.message_handler(commands=['reg'])
     def register_via_bot(message):
         raw_args = message.text.replace("/reg", "").strip()
