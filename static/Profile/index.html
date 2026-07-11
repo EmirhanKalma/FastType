@@ -25,8 +25,6 @@
           <h1 id="user-name">Загрузка...</h1>
         </div>
       </div>
-
-      <!-- Основная статистика -->
       <div class="stats-grid">
         <div class="stat-card">
           <span class="stat-label">Всего тестов</span>
@@ -54,11 +52,9 @@
         </div>
       </div>
 
-      <!-- НОВОЕ: ТЕПЛОВАЯ КАРТА КЛАВИАТУРЫ -->
       <h2 class="section-title">⌨️ Тепловая активность клавиш</h2>
       <div class="heatmap-section">
         <div class="heatmap-keyboard" id="heatmap-keyboard">
-          <!-- Ряд 1 -->
           <div class="heatmap-row">
             <div class="h-key" data-key="Q">Q</div>
             <div class="h-key" data-key="W">W</div>
@@ -71,7 +67,6 @@
             <div class="h-key" data-key="O">O</div>
             <div class="h-key" data-key="P">P</div>
           </div>
-          <!-- Ряд 2 -->
           <div class="heatmap-row">
             <div class="h-key" data-key="A">A</div>
             <div class="h-key" data-key="S">S</div>
@@ -83,7 +78,6 @@
             <div class="h-key" data-key="K">K</div>
             <div class="h-key" data-key="L">L</div>
           </div>
-          <!-- Ряд 3 -->
           <div class="heatmap-row">
             <div class="h-key" data-key="Z">Z</div>
             <div class="h-key" data-key="X">X</div>
@@ -93,13 +87,11 @@
             <div class="h-key" data-key="N">N</div>
             <div class="h-key" data-key="M">M</div>
           </div>
-          <!-- Пробел -->
           <div class="heatmap-row">
             <div class="h-key h-space" data-key="SPACE">SPACE</div>
           </div>
         </div>
 
-        <!-- Панель деталей клавиши -->
         <div class="key-info-panel" id="key-info-panel">
           <h3>Статистика клавиши</h3>
           <p id="key-instruction">Наведи курсор на клавишу для анализа</p>
@@ -112,7 +104,6 @@
         </div>
       </div>
 
-      <!-- НОВОЕ: ДОСТИЖЕНИЯ -->
       <h2 class="section-title">🏆 Достижения игрока</h2>
       <div class="achievements-grid" id="achievements-grid">
         <div class="ach-card locked" id="ach-first">
@@ -145,14 +136,14 @@
         </div>
       </div>
 
-      <div class="profile-actions">
-        <button class="res-btn primary" onclick="location.href = '/MainTrainingPage/index.html'">
-          На главную
-        </button>
-      </div>
-    </div>
+            <button 
+    class="menu-btn" 
+    data-type="back" 
+    data-title="Вернуться на главную страницу" 
+    onclick="location.href='../MainTrainingPage/index.html'">
+  </button>
 
-    <!-- Загружаем бэк-синхронизатор и стили, затем строим аналитику -->
+
     <script src="/sync.js"></script>
     <script src="main.js"></script>
   </body>
